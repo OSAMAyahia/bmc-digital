@@ -79,7 +79,7 @@
 .snav-item.snav-active .snav-dot {
   background: linear-gradient(135deg, #6C63FF, #00C2FF);
   border-color: #00C2FF;
-  box-shadow: 0 0 8px rgba(108,99,255,0.6);
+  box-shadow: none;
   transform: scale(1.3);
 }
 
@@ -157,4 +157,8 @@
   .section-nav {
     display: none;
   }
+}
+
+.snav-item:hover .snav-dot {
+  box-shadow: 0 0 8px rgba(108,99,255,0.6);
 }

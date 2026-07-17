@@ -103,9 +103,9 @@ export default function Process({ lang }) {
             {[26, 142, 260, 378, 494].map((cx, i) => (
               <g key={i}>
                 {/* outer ring */}
-                <circle cx={cx} cy="40" r="22" fill="none" stroke="#00C2FF" strokeWidth="0.8" />
-                {/* inner filled circle */}
-                <circle cx={cx} cy="40" r="13" fill="#00C2FF" opacity="0.6" />
+                <rect x={cx - 22} y="18" width="44" height="44" fill="none" stroke="#00C2FF" strokeWidth="0.8" />
+                {/* inner filled square */}
+                <rect x={cx - 13} y="27" width="26" height="26" fill="#00C2FF" opacity="0.6" />
                 {/* step number */}
                 <text
                   x={cx} y="40"

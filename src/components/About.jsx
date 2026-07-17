@@ -3,7 +3,7 @@ import { useData } from '../DataContext';
 import { useAnimate } from '../hooks/useAnimate';
 import '../animations.css';
 
-function SphereCanvas() {
+function ExperiencePanelCanvas() {
   const canvasRef = useRef(null);
   const rafRef = useRef(null);
 
@@ -11,80 +11,51 @@ function SphereCanvas() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const W = 220, H = 220, cx = W / 2, cy = H / 2, R = 100;
+    const W = 220, H = 220;
     let t = 0;
 
     function draw() {
       ctx.clearRect(0, 0, W, H);
 
-      // base sphere
-      const g = ctx.createRadialGradient(cx - 30, cy - 30, 10, cx, cy, R);
-      g.addColorStop(0, 'rgba(108,99,255,0.5)'); 
-      g.addColorStop(0.45, 'rgba(0,194,255,0.3)');
-      g.addColorStop(0.8, 'rgba(60,40,180,0.35)');
-      g.addColorStop(1, 'rgba(10,8,3,0.6)');
-      ctx.beginPath();
-      ctx.arc(cx, cy, R, 0, Math.PI * 2);
+      const g = ctx.createLinearGradient(0, 0, W, H);
+      g.addColorStop(0, 'rgba(108,99,255,0.32)');
+      g.addColorStop(0.5, 'rgba(0,194,255,0.2)');
+      g.addColorStop(1, 'rgba(4,8,25,0.8)');
       ctx.fillStyle = g;
-      ctx.fill();
+      ctx.fillRect(0, 0, W, H);
 
-      // latitude lines
-      for (let lat = -80; lat <= 80; lat += 20) {
-        const y0 = cy + R * Math.sin((lat * Math.PI) / 180);
-        const r0 = R * Math.cos((lat * Math.PI) / 180);
-        if (r0 < 2) continue;
+      // angular technical grid
+      for (let x = 20; x < W; x += 20) {
         ctx.beginPath();
-        ctx.ellipse(cx, y0, r0, r0 * 0.18, 0, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(184,164,114,${0.12 + 0.06 * Math.cos(((lat + t * 30) * Math.PI) / 180)})`;
-        ctx.lineWidth = 0.6;
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, H);
+        ctx.strokeStyle = 'rgba(0,194,255,0.11)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+      for (let y = 20; y < H; y += 20) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(W, y);
+        ctx.strokeStyle = 'rgba(108,99,255,0.1)';
+        ctx.lineWidth = 1;
         ctx.stroke();
       }
 
-      // longitude lines
-      for (let lon = 0; lon < 180; lon += 18) {
-        const angle = ((lon + t * 15) * Math.PI) / 180;
-        ctx.save();
-        ctx.translate(cx, cy);
-        ctx.scale(Math.abs(Math.cos(angle)) * 0.3 + 0.7, 1);
-        ctx.beginPath();
-        ctx.arc(0, 0, R, -Math.PI / 2, Math.PI / 2);
-        ctx.strokeStyle = `rgba(184,164,114,${0.08 + 0.06 * Math.abs(Math.cos(angle))})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-        ctx.restore();
-      }
+      // moving rectangular scan band
+      const scanX = ((t * 45) % (W + 50)) - 50;
+      const scan = ctx.createLinearGradient(scanX, 0, scanX + 50, 0);
+      scan.addColorStop(0, 'rgba(0,194,255,0)');
+      scan.addColorStop(0.5, 'rgba(0,194,255,0.2)');
+      scan.addColorStop(1, 'rgba(0,194,255,0)');
+      ctx.fillStyle = scan;
+      ctx.fillRect(scanX, 0, 50, H);
 
-      // shimmer
-      const sh = ctx.createRadialGradient(cx - 40, cy - 40, 5, cx - 20, cy - 20, 80);
-      sh.addColorStop(0, 'rgba(245,235,190,0.28)');
-      sh.addColorStop(0.5, 'rgba(220,200,140,0.08)');
-      sh.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.beginPath();
-      ctx.arc(cx, cy, R, 0, Math.PI * 2);
-      ctx.fillStyle = sh;
-      ctx.fill();
-     
-      // rotating bright dot
-      const bx = cx + R * 0.65 * Math.cos(t * 1.2);
-      const by = cy + R * 0.45 * Math.sin(t * 0.9);
-      const bd = ctx.createRadialGradient(bx, by, 0, bx, by, 14);
-      bd.addColorStop(0, 'rgba(245,235,190,0.8)');
-      bd.addColorStop(1, 'rgba(184,164,114,0)');
-      ctx.beginPath();
-      ctx.arc(bx, by, 14, 0, Math.PI * 2);
-      ctx.fillStyle = bd;
-      ctx.fill();
+      ctx.strokeStyle = 'rgba(0,194,255,0.55)';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(1, 1, W - 2, H - 2);
 
-      // edge glow
-      const edge = ctx.createRadialGradient(cx, cy, R * 0.75, cx, cy, R);
-      edge.addColorStop(0, 'rgba(0,0,0,0)');
-      edge.addColorStop(1, 'rgba(108,99,255,0.2)');
-      ctx.beginPath();
-      ctx.arc(cx, cy, R, 0, Math.PI * 2);
-      ctx.fillStyle = edge;
-      ctx.fill();
-
-      t += 0.008;
+      t += 0.02;
       rafRef.current = requestAnimationFrame(draw);
     }
 
@@ -188,23 +159,23 @@ export default function About({ lang }) {
             </a>
           </div>
 
-          {/* ── Right: 3D Sphere & Number ── */}
+          {/* ── Right: sharp technical experience panel ── */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
             {/* rings */}
             <div style={{ position: 'relative', width: 280, height: 280, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              {/* orbit ring 1 */}
+              {/* angular frame 1 */}
               <div style={{
                 position: 'absolute',
                 width: 260, height: 260,
-                borderRadius: '50%',
+                borderRadius: 0,
                 border: '1px solid rgba(0,194,255,0.1)',
                 animation: 'aboutRing1 14s linear infinite',
               }} />
-              {/* orbit ring 2 */}
+              {/* angular frame 2 */}
               <div style={{
                 position: 'absolute',
                 width: 300, height: 300,
-                borderRadius: '50%',
+                borderRadius: 0,
                 border: '1px solid rgba(0,194,255,0.06)',
                 animation: 'aboutRing2 20s linear infinite reverse',
               }} />
@@ -213,21 +184,21 @@ export default function About({ lang }) {
               <div style={{
                 position: 'absolute',
                 width: 240, height: 240,
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(0,194,255,0.07) 0%, transparent 70%)',
+                borderRadius: 0,
+                background: 'linear-gradient(135deg, rgba(0,194,255,0.06), transparent 70%)',
                 animation: 'aboutGlow 5s ease-in-out infinite',
               }} />
 
-              {/* sphere wrapper */}
+              {/* panel wrapper */}
               <div style={{
                 width: 220, height: 220,
-                borderRadius: '50%',
+                borderRadius: 0,
                 overflow: 'hidden',
                 boxShadow: '0 0 60px rgba(0,194,255,0.2), 0 0 120px rgba(0,194,255,0.08), inset 0 0 40px rgba(0,0,0,0.5)',
                 animation: 'aboutFloat 6s ease-in-out infinite',
                 position: 'relative',
               }}>
-                <SphereCanvas />
+                <ExperiencePanelCanvas />
 
                 {/* Premium 3D Number Overlay */}
                 <div style={{
@@ -242,7 +213,7 @@ export default function About({ lang }) {
                     position: 'absolute', top: '50%', left: '50%',
                     transform: 'translate(-50%, -50%)',
                     width: 140, height: 140,
-                    background: 'radial-gradient(circle, rgba(0,194,255,0.4) 0%, transparent 70%)',
+                    background: 'linear-gradient(135deg, rgba(0,194,255,0.35), transparent 72%)',
                     filter: 'blur(24px)',
                     animation: 'numPulseGlow 4s ease-in-out infinite alternate',
                     zIndex: -1,
@@ -327,7 +298,7 @@ function Particles() {
         <div key={p.key} style={{
           position: 'absolute',
           width: p.size, height: p.size,
-          borderRadius: '50%',
+          borderRadius: 0,
           background: 'rgba(0,194,255,0.5)',
           left: `${p.left}%`,
           animation: `particleRise ${p.dur}s linear ${p.delay}s infinite`,

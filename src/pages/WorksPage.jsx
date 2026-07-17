@@ -145,8 +145,8 @@ export default function WorksPage({ lang, setLang }) {
           </g>
           <path className="works-connector" d="M208 122 C264 72 324 88 372 122" fill="none" stroke="#00C2FF" strokeOpacity="0.45" strokeWidth="2" strokeDasharray="8 10" />
           <path className="works-connector works-connector--two" d="M250 248 C214 272 190 254 164 226" fill="none" stroke="#00C2FF" strokeOpacity="0.34" strokeWidth="2" strokeDasharray="7 9" />
-          <circle className="works-spark works-spark-a" cx="424" cy="92" r="7" fill="#00C2FF" />
-          <circle className="works-spark works-spark-b" cx="96" cy="222" r="5" fill="#00C2FF" />
+          <rect className="works-spark works-spark-a" x="417" y="85" width="14" height="14" fill="#00C2FF" />
+          <rect className="works-spark works-spark-b" x="91" y="217" width="10" height="10" fill="#00C2FF" />
         </svg>
         {/* 3. Moving 3D Grid Floor */}
         <div className="grid-floor" />

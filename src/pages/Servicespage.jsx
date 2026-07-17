@@ -200,12 +200,12 @@ export default function ServicesPage({ lang, setLang }) {
           <path className="services-flow-line services-flow-line--slow" d="M96 118 C168 210 224 86 304 134 S382 260 462 112" fill="none" stroke="#00C2FF" strokeOpacity="0.34" strokeWidth="1.5" strokeLinecap="round" />
           {[80, 164, 260, 344, 442].map((x, index) => (
             <g key={x} className={`services-node services-node-${index + 1}`}>
-              <circle cx={x} cy={index % 2 ? 126 : 214} r="28" fill="rgba(0,194,255,0.08)" stroke="#00C2FF" strokeOpacity="0.45" />
-              <circle cx={x} cy={index % 2 ? 126 : 214} r="7" fill="#00C2FF" />
+              <rect x={x - 28} y={(index % 2 ? 126 : 214) - 28} width="56" height="56" fill="rgba(0,194,255,0.08)" stroke="#00C2FF" strokeOpacity="0.45" />
+              <rect x={x - 7} y={(index % 2 ? 126 : 214) - 7} width="14" height="14" fill="#00C2FF" />
             </g>
           ))}
-          <rect className="services-panel-a" x="178" y="58" width="120" height="54" rx="12" fill="rgba(0,194,255,0.07)" stroke="#00C2FF" strokeOpacity="0.32" />
-          <rect className="services-panel-b" x="286" y="232" width="138" height="58" rx="12" fill="rgba(0,194,255,0.06)" stroke="#00C2FF" strokeOpacity="0.28" />
+          <rect className="services-panel-a" x="178" y="58" width="120" height="54" fill="rgba(0,194,255,0.07)" stroke="#00C2FF" strokeOpacity="0.32" />
+          <rect className="services-panel-b" x="286" y="232" width="138" height="58" fill="rgba(0,194,255,0.06)" stroke="#00C2FF" strokeOpacity="0.28" />
         </svg>
         
         {/* 3. Moving 3D Grid Floor */}

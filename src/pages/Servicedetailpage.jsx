@@ -37,7 +37,7 @@ function FeatureSymbol({ index, size = 19 }) {
   const icons = [
     <><rect key="a" x="3" y="5" width="18" height="13" /><path key="b" d="M8 21h8M12 18v3M7 9h10" /></>,
     <><path key="a" d="m13 2-9 12h8l-1 8 9-12h-8l1-8Z" /></>,
-    <><circle key="a" cx="11" cy="11" r="7" /><path key="b" d="m20 20-4-4M8 11h6M11 8v6" /></>,
+    <><rect key="a" x="4" y="4" width="14" height="14" /><path key="b" d="m20 20-4-4M8 11h6M11 8v6" /></>,
     <><rect key="a" x="3" y="3" width="18" height="18" /><path key="b" d="M3 9h18M9 21V9M13 13h4M13 17h4" /></>,
     <><path key="a" d="M12 3 4 6v5c0 5.2 3.3 8.8 8 10 4.7-1.2 8-4.8 8-10V6l-8-3Z" /><path key="b" d="m9 12 2 2 4-4" /></>,
   ];
@@ -214,6 +214,67 @@ const servicePageCopy = {
     ],
   },
 };
+
+/* Benefits describe business outcomes, while features describe what is delivered. */
+const serviceOutcomeBenefitsAr = {
+  'e-commerce-website-development': [
+    { title: 'مبيعات أكثر', desc: 'رحلة شراء واضحة تقلّل التردد وتساعد العميل على إتمام الطلب.' },
+    { title: 'ثقة أعلى عند الدفع', desc: 'تجربة دفع منظمة وموثوقة تشجّع العميل على العودة والشراء مجددًا.' },
+    { title: 'تشغيل يومي أسهل', desc: 'إدارة الطلبات والمنتجات من مكان واحد تقلّل الوقت والمجهود.' },
+    { title: 'قرارات مبنية على بيانات', desc: 'رؤية أوضح لأداء المنتجات والطلبات تساعدك على تحسين المبيعات.' },
+    { title: 'نمو بدون تعقيد', desc: 'بنية قابلة للتوسع تستوعب زيادة المنتجات والعملاء والطلبات.' },
+    { title: 'ولاء أقوى للعملاء', desc: 'تجربة شراء ثابتة وسريعة تزيد فرص تكرار الطلب.' },
+  ],
+  'erp-systems': [
+    { title: 'وقت أقل في الأعمال الروتينية', desc: 'أتمتة الإجراءات المتكررة تتيح لفريقك التركيز على العمل الأهم.' },
+    { title: 'رؤية موحدة للأعمال', desc: 'البيانات المترابطة تمنح الإدارة صورة واضحة عن العمليات.' },
+    { title: 'قرارات أسرع', desc: 'تقارير واضحة ومحدثة تقلّل التخمين وتسرّع اتخاذ القرار.' },
+    { title: 'رقابة مالية وتشغيلية أفضل', desc: 'تتبّع أدق للحركة والتكاليف يقلّل الأخطاء والهدر.' },
+    { title: 'نمو منظم', desc: 'النظام يتوسع مع الفروع والفرق والعمليات الجديدة.' },
+    { title: 'تنسيق أقوى بين الفرق', desc: 'مصدر بيانات واحد يقلّل التعارض ويحسن التعاون الداخلي.' },
+  ],
+  'ui-ux-design': [
+    { title: 'استخدام أسهل من أول مرة', desc: 'المستخدم يفهم الواجهة بسرعة دون شرح أو خطوات مربكة.' },
+    { title: 'إتمام مهام أكثر', desc: 'رحلات واضحة تساعد المستخدم على التسجيل أو الطلب أو التواصل.' },
+    { title: 'ثقة أكبر في العلامة', desc: 'تجربة متناسقة واحترافية ترفع الانطباع عن مشروعك.' },
+    { title: 'ملاحظات وشكاوى أقل', desc: 'وضوح الواجهة يقلّل الأخطاء والأسئلة المتكررة.' },
+    { title: 'تحويل أعلى', desc: 'ترتيب المحتوى والإجراءات يوجّه المستخدم نحو القرار المطلوب.' },
+    { title: 'تطوير أسرع مستقبلًا', desc: 'نظام تصميم موحد يسهّل إضافة الشاشات والخصائص.' },
+  ],
+  'ai-solutions': [
+    { title: 'استجابة أسرع للعملاء', desc: 'الأتمتة الذكية تقلّل وقت الانتظار وتعمل على مدار الساعة.' },
+    { title: 'قرارات أدق', desc: 'تحليل البيانات يكشف أنماطًا وفرصًا يصعب ملاحظتها يدويًا.' },
+    { title: 'تكلفة تشغيل أقل', desc: 'تقليل المهام اليدوية المتكررة يرفع كفاءة الفريق.' },
+    { title: 'تجربة أكثر تخصيصًا', desc: 'الحلول الذكية تقدم محتوى واقتراحات أنسب لكل مستخدم.' },
+    { title: 'اكتشاف مبكر للمخاطر', desc: 'المؤشرات التنبؤية تساعدك على التحرك قبل تفاقم المشكلة.' },
+    { title: 'قدرة أكبر على التوسع', desc: 'معالجة حجم أكبر من الطلبات دون زيادة مماثلة في الجهد.' },
+  ],
+  'tech-consulting': [
+    { title: 'استثمار تقني أوضح', desc: 'توجيه الميزانية نحو الحلول التي تخدم أهداف العمل فعلًا.' },
+    { title: 'مخاطر أقل', desc: 'اكتشاف نقاط الضعف مبكرًا قبل أن تتحول إلى تكلفة أو تعطّل.' },
+    { title: 'خارطة طريق قابلة للتنفيذ', desc: 'أولويات ومراحل واضحة بدل القرارات التقنية المتفرقة.' },
+    { title: 'استمرارية أفضل للأعمال', desc: 'بنية أكثر موثوقية تقلّل الأعطال وتدعم التشغيل اليومي.' },
+    { title: 'اختيارات تقنية أنسب', desc: 'مقارنة البدائل وفق الاحتياج والتكلفة وقابلية النمو.' },
+    { title: 'جاهزية للنمو', desc: 'قرارات تأسيسية صحيحة تمنع إعادة البناء المكلفة لاحقًا.' },
+  ],
+  'digital-marketing': [
+    { title: 'وصول إلى جمهور أنسب', desc: 'استهداف أدق يضع رسالتك أمام العملاء الأكثر اهتمامًا.' },
+    { title: 'فرص بيع أكثر', desc: 'حملات ورسائل مدروسة تحوّل الاهتمام إلى تواصل وطلبات.' },
+    { title: 'عائد أوضح على الميزانية', desc: 'قياس النتائج يوضح القنوات الأفضل ويقلّل الإنفاق غير الفعّال.' },
+    { title: 'حضور أقوى للعلامة', desc: 'ظهور متناسق ومستمر يجعل مشروعك أسهل في التذكر.' },
+    { title: 'تحسين مستمر للنتائج', desc: 'اختبار المحتوى والجمهور يساعد على رفع الأداء مع الوقت.' },
+    { title: 'فهم أعمق للعملاء', desc: 'بيانات الحملات تكشف ما يجذب جمهورك وما يدفعه للتفاعل.' },
+  ],
+};
+
+const genericOutcomeBenefitsAr = [
+  { title: 'تشغيل أكثر كفاءة', desc: 'تنظيم العمل وتقليل الخطوات اليدوية يوفران الوقت والمجهود.' },
+  { title: 'تجربة أفضل للعملاء', desc: 'رحلة أوضح وأسرع تزيد رضا العميل وثقته في مشروعك.' },
+  { title: 'قرارات أسرع', desc: 'معلومات مرتبة وواضحة تساعدك على اتخاذ القرار بثقة.' },
+  { title: 'جاهزية للنمو', desc: 'أساس مرن يستوعب توسع المشروع واحتياجاته الجديدة.' },
+  { title: 'تكلفة أقل على المدى الطويل', desc: 'تقليل الأخطاء وإعادة العمل يحافظ على الموارد والميزانية.' },
+  { title: 'نتائج قابلة للقياس', desc: 'مؤشرات أوضح تسهّل متابعة الأداء والتحسين المستمر.' },
+];
 
 /* ── 3D tilt card hook ── */
 function useTilt(strength = 10) {
@@ -583,7 +644,7 @@ function TrackedFeatureList({ items, accent, isAr }) {
         marginBottom: 4, paddingBottom: 16,
         borderBottom: `2px solid ${accent}`, display: 'inline-block',
       }}>
-        {isAr ? 'المميزات' : 'Features'}
+        {isAr ? `المميزات (${String(items.length).padStart(2, '0')})` : `Features (${String(items.length).padStart(2, '0')})`}
       </div>
       <div style={{ position: 'relative' }}>
         <AnimatedTracker
@@ -613,7 +674,7 @@ function TrackedBenefitList({ items, accent, isAr }) {
         marginBottom: 4, paddingBottom: 16,
         borderBottom: `2px solid ${accent}55`, display: 'inline-block',
       }}>
-        {isAr ? 'الفوائد' : 'Benefits'}
+        {isAr ? `الفوائد (${String(items.length).padStart(2, '0')})` : `Benefits (${String(items.length).padStart(2, '0')})`}
       </div>
       <div style={{ position: 'relative' }}>
         <AnimatedTracker
@@ -973,12 +1034,17 @@ export default function ServiceDetailPage({ lang, setLang }) {
     title: sanitizeServiceText(b?.title),
     desc: sanitizeServiceText(b?.desc),
   })) || [];
-  const benefits = features.map((feature, index) => rawBenefits[index] || {
-    title: isAr ? `قيمة عملية: ${feature}` : `Practical value: ${feature}`,
-    desc: isAr
-      ? 'تساعد هذه الإمكانية مشروعك على العمل بكفاءة أكبر وتقديم تجربة أفضل للمستخدم.'
-      : 'This capability helps your business operate more efficiently and deliver a better user experience.',
-  });
+  const outcomeBenefits = isAr
+    ? (approvedCopy.benefitsAr || serviceOutcomeBenefitsAr[service.slug] || genericOutcomeBenefitsAr)
+    : rawBenefits;
+  const benefits = features.map((_, index) => outcomeBenefits[index] || (
+    isAr
+      ? genericOutcomeBenefitsAr[index % genericOutcomeBenefitsAr.length]
+      : {
+          title: `Business outcome ${index + 1}`,
+          desc: 'A measurable improvement in efficiency, customer experience, or business growth.',
+        }
+  ));
   const heroSubtitle = isAr ? approvedCopy.heroSubtitleAr : '';
   const heroCta = isAr && approvedCopy.heroCtaAr ? approvedCopy.heroCtaAr : (isAr ? 'اطلب الخدمة الآن' : 'Request This Service');
   const featuresIntro = isAr ? approvedCopy.featuresIntroAr : '';

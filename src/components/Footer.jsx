@@ -10,7 +10,7 @@ import shopifyImg from '../assets/our partinar/shopify.png';
 const PinIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-    <circle cx="12" cy="10" r="3" />
+    <rect x="9" y="7" width="6" height="6" />
   </svg>
 );
 
@@ -77,8 +77,8 @@ function SaudiClock({ lang }) {
 
         {/* Analog clock */}
         <svg className="clock-svg" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="40" r="37" fill="none" stroke="rgba(108,99,255,0.25)" strokeWidth="1"/>
-          <circle cx="40" cy="40" r="35" fill="rgba(0,0,0,0.35)" />
+          <rect x="3" y="3" width="74" height="74" fill="none" stroke="rgba(108,99,255,0.25)" strokeWidth="1"/>
+          <rect x="5" y="5" width="70" height="70" fill="rgba(0,0,0,0.35)" />
           {[...Array(12)].map((_, i) => {
             const a = (i * 30 - 90) * (Math.PI / 180);
             const x1 = 40 + 30 * Math.cos(a), y1 = 40 + 30 * Math.sin(a);
@@ -104,7 +104,7 @@ function SaudiClock({ lang }) {
             x2={40 + 29 * Math.cos((secDeg - 90) * Math.PI / 180)}
             y2={40 + 29 * Math.sin((secDeg - 90) * Math.PI / 180)}
             stroke="rgba(108,99,255,0.9)" strokeWidth="0.9" strokeLinecap="round"/>
-          <circle cx="40" cy="40" r="2.5" fill="#00C2FF"/>
+          <rect x="37.5" y="37.5" width="5" height="5" fill="#00C2FF"/>
         </svg>
 
         {/* Right panel: digital + date */}
@@ -193,8 +193,6 @@ export default function Footer({ lang }) {
                 <li><a href="#services">{lang === 'ar' ? 'تصميم UI/UX' : 'UI/UX Design'}</a></li>
                 <li><a href="#services">{lang === 'ar' ? 'التسويق الرقمي' : 'Digital Marketing'}</a></li>
               </ul>
-
-              <SaudiClock lang={lang} />
             </div>
 
             <div className="footer-col footer-col--contact">
@@ -237,6 +235,10 @@ export default function Footer({ lang }) {
                   </span>
                 </a>
               </div>
+            </div>
+
+            <div className="footer-clock-wide">
+              <SaudiClock lang={lang} />
             </div>
           </div>
         </div>

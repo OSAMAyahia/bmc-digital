@@ -405,3 +405,17 @@ body {
     padding-bottom: env(safe-area-inset-bottom);
   }
 }
+
+/* Final mobile cascade: no rounded containers anywhere in the public or admin UI. */
+html body [class],
+html body [style*="border-radius"],
+html body button,
+html body a,
+html body input,
+html body textarea,
+html body select,
+html body img,
+html body [class]::before,
+html body [class]::after {
+  border-radius: 0 !important;
+}
