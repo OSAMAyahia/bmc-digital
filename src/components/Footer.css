@@ -13,31 +13,6 @@
   gap: 48px;
 }
 
-.footer-clock-wide {
-  grid-column: 2 / 4;
-  width: 100%;
-  align-self: end;
-}
-
-.footer-clock-wide .saudi-clock-wrap {
-  margin-top: -18px;
-}
-
-.footer-clock-wide .saudi-clock-inner {
-  min-height: 112px;
-  padding: 18px 22px;
-  gap: 24px;
-}
-
-.footer-clock-wide .clock-svg {
-  width: 82px;
-  height: 82px;
-}
-
-.footer-clock-wide .clock-digits {
-  font-size: 22px;
-}
-
 .footer-brand {
   display: flex;
   flex-direction: column;
@@ -677,10 +652,6 @@
     gap: 10px;
   }
 
-  .footer-clock-wide {
-    grid-column: 1 / -1;
-  }
-
 }
 
 @media (max-width: 600px) {
@@ -689,7 +660,6 @@
     grid-template-areas:
       "brand brand"
       "quick services"
-      "clock clock"
       "contact contact";
     gap: 22px;
   }
@@ -698,11 +668,6 @@
   .footer-col--quick { grid-area: quick; }
   .footer-col--services { grid-area: services; }
   .footer-col--contact { grid-area: contact; }
-  .footer-clock-wide { grid-area: clock; }
-
-  .footer-clock-wide .saudi-clock-wrap {
-    margin-top: 0;
-  }
 
   .footer-top {
     padding: 48px 0 40px;

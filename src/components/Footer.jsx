@@ -182,6 +182,7 @@ export default function Footer({ lang }) {
                   </li>
                 ))}
               </ul>
+              <SaudiClock lang={lang} />
             </div>
 
             <div className="footer-col footer-col--services">
@@ -235,10 +236,6 @@ export default function Footer({ lang }) {
                   </span>
                 </a>
               </div>
-            </div>
-
-            <div className="footer-clock-wide">
-              <SaudiClock lang={lang} />
             </div>
           </div>
         </div>

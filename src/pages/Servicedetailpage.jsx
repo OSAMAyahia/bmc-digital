@@ -644,16 +644,9 @@ function TrackedFeatureList({ items, accent, isAr }) {
         marginBottom: 4, paddingBottom: 16,
         borderBottom: `2px solid ${accent}`, display: 'inline-block',
       }}>
-        {isAr ? `المميزات (${String(items.length).padStart(2, '0')})` : `Features (${String(items.length).padStart(2, '0')})`}
+        {isAr ? 'المميزات' : 'Features'}
       </div>
       <div style={{ position: 'relative' }}>
-        <AnimatedTracker
-          rowCount={items.length}
-          accent={accent}
-          isAr={isAr}
-          label={isAr ? 'ميزة' : 'feat'}
-          containerRef={rowsRef}
-        />
         <div ref={rowsRef}>
           {items.map((f, i) => (
             <FeatureRow key={`f-${i}`} text={f} index={i} accent={accent} />
@@ -674,16 +667,9 @@ function TrackedBenefitList({ items, accent, isAr }) {
         marginBottom: 4, paddingBottom: 16,
         borderBottom: `2px solid ${accent}55`, display: 'inline-block',
       }}>
-        {isAr ? `الفوائد (${String(items.length).padStart(2, '0')})` : `Benefits (${String(items.length).padStart(2, '0')})`}
+        {isAr ? 'الفوائد' : 'Benefits'}
       </div>
       <div style={{ position: 'relative' }}>
-        <AnimatedTracker
-          rowCount={items.length}
-          accent={accent}
-          isAr={isAr}
-          label={isAr ? 'فائدة' : 'ben'}
-          containerRef={rowsRef}
-        />
         <div ref={rowsRef}>
           {items.map((b, i) => (
             <BenefitItem key={`b-${i}`} title={b.title} desc={b.desc} accent={accent} index={i} />
