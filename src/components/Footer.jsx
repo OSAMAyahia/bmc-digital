@@ -182,7 +182,6 @@ export default function Footer({ lang }) {
                   </li>
                 ))}
               </ul>
-              <SaudiClock lang={lang} />
             </div>
 
             <div className="footer-col footer-col--services">
@@ -194,6 +193,10 @@ export default function Footer({ lang }) {
                 <li><a href="#services">{lang === 'ar' ? 'تصميم UI/UX' : 'UI/UX Design'}</a></li>
                 <li><a href="#services">{lang === 'ar' ? 'التسويق الرقمي' : 'Digital Marketing'}</a></li>
               </ul>
+            </div>
+
+            <div className="footer-clock-under-links">
+              <SaudiClock lang={lang} />
             </div>
 
             <div className="footer-col footer-col--contact">

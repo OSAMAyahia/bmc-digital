@@ -10,7 +10,25 @@
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.8fr;
+  grid-template-areas:
+    "brand quick services contact"
+    "brand clock clock contact";
   gap: 48px;
+}
+
+.footer-col--brand { grid-area: brand; }
+.footer-col--quick { grid-area: quick; }
+.footer-col--services { grid-area: services; }
+.footer-col--contact { grid-area: contact; }
+.footer-clock-under-links { grid-area: clock; }
+
+.footer-col--quick {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-clock-under-links .saudi-clock-wrap {
+  margin-top: -18px;
 }
 
 .footer-brand {
@@ -120,7 +138,8 @@
 .saudi-clock-inner {
   display: flex;
   align-items: center;
-  gap: 14px;
+  justify-content: space-between;
+  gap: 12px;
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(0,194,255,0.12);
   border-radius: 10px;
@@ -129,16 +148,18 @@
 }
 
 .clock-svg {
-  width: 68px;
-  height: 68px;
+  width: 58px;
+  height: 58px;
   flex-shrink: 0;
   filter: drop-shadow(0 0 6px rgba(0,194,255,0.15));
 }
 
 .clock-right {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   flex: 1;
   min-width: 0;
 }
@@ -147,11 +168,12 @@
   display: flex;
   align-items: baseline;
   gap: 5px;
+  flex-shrink: 0;
 }
 
 .clock-digits {
   font-family: 'Courier New', monospace;
-  font-size: 18px;
+  font-size: 15px;
   color: rgba(255,255,255,0.85);
   letter-spacing: 1px;
   line-height: 1;
@@ -167,11 +189,12 @@
 .clock-date {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 3px;
+  min-width: 0;
 }
 
 .clock-day-name {
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #00C2FF;
@@ -179,16 +202,19 @@
 }
 
 .clock-date-num {
-  font-size: 11px;
+  font-size: 9px;
   color: rgba(255,255,255,0.45);
   font-family: 'Courier New', monospace;
 }
 
 .clock-hijri-label {
-  font-size: 9px;
+  font-size: 8px;
   color: rgba(255,255,255,0.2);
   letter-spacing: 0.5px;
   margin-top: 2px;
+  white-space: normal;
+  max-width: 74px;
+  line-height: 1.35;
 }
 
 /* ── Footer Divider ── */
@@ -636,6 +662,11 @@
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand brand"
+      "quick services"
+      "clock clock"
+      "contact contact";
     gap: 32px;
   }
 
@@ -660,14 +691,14 @@
     grid-template-areas:
       "brand brand"
       "quick services"
+      "clock clock"
       "contact contact";
     gap: 22px;
   }
 
-  .footer-col--brand { grid-area: brand; }
-  .footer-col--quick { grid-area: quick; }
-  .footer-col--services { grid-area: services; }
-  .footer-col--contact { grid-area: contact; }
+  .footer-clock-under-links .saudi-clock-wrap {
+    margin-top: 0;
+  }
 
   .footer-top {
     padding: 48px 0 40px;

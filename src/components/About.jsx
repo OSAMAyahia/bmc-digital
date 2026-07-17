@@ -3,7 +3,7 @@ import { useData } from '../DataContext';
 import { useAnimate } from '../hooks/useAnimate';
 import '../animations.css';
 
-function ExperiencePanelCanvas() {
+function ExperienceSphereCanvas() {
   const canvasRef = useRef(null);
   const rafRef = useRef(null);
 
@@ -17,43 +17,45 @@ function ExperiencePanelCanvas() {
     function draw() {
       ctx.clearRect(0, 0, W, H);
 
-      const g = ctx.createLinearGradient(0, 0, W, H);
-      g.addColorStop(0, 'rgba(108,99,255,0.32)');
-      g.addColorStop(0.5, 'rgba(0,194,255,0.2)');
-      g.addColorStop(1, 'rgba(4,8,25,0.8)');
-      ctx.fillStyle = g;
-      ctx.fillRect(0, 0, W, H);
+      const cx = W / 2;
+      const cy = H / 2;
+      const r = 96;
 
-      // angular technical grid
-      for (let x = 20; x < W; x += 20) {
+      const sphere = ctx.createRadialGradient(cx - 32, cy - 40, 8, cx, cy, r);
+      sphere.addColorStop(0, 'rgba(255,255,255,0.9)');
+      sphere.addColorStop(0.22, 'rgba(0,194,255,0.55)');
+      sphere.addColorStop(0.58, 'rgba(108,99,255,0.24)');
+      sphere.addColorStop(1, 'rgba(3,7,20,0.08)');
+      ctx.fillStyle = sphere;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.fill();
+
+      for (let i = 0; i < 7; i += 1) {
+        const wave = Math.sin(t + i * 0.8) * 5;
         ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, H);
-        ctx.strokeStyle = 'rgba(0,194,255,0.11)';
+        ctx.ellipse(cx, cy + (i - 3) * 18 + wave, r * Math.cos((i - 3) * 0.18), 9, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(0,194,255,${0.08 + i * 0.012})`;
         ctx.lineWidth = 1;
         ctx.stroke();
       }
-      for (let y = 20; y < H; y += 20) {
+
+      for (let i = 0; i < 8; i += 1) {
+        const angle = (i / 8) * Math.PI * 2 + t * 0.18;
         ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(W, y);
-        ctx.strokeStyle = 'rgba(108,99,255,0.1)';
+        ctx.ellipse(cx, cy, r * 0.92, r * 0.22, angle, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(245,240,232,0.07)';
         ctx.lineWidth = 1;
         ctx.stroke();
       }
 
-      // moving rectangular scan band
-      const scanX = ((t * 45) % (W + 50)) - 50;
-      const scan = ctx.createLinearGradient(scanX, 0, scanX + 50, 0);
-      scan.addColorStop(0, 'rgba(0,194,255,0)');
-      scan.addColorStop(0.5, 'rgba(0,194,255,0.2)');
-      scan.addColorStop(1, 'rgba(0,194,255,0)');
-      ctx.fillStyle = scan;
-      ctx.fillRect(scanX, 0, 50, H);
-
-      ctx.strokeStyle = 'rgba(0,194,255,0.55)';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(1, 1, W - 2, H - 2);
+      const shine = ctx.createRadialGradient(cx - 38, cy - 45, 0, cx - 38, cy - 45, 58);
+      shine.addColorStop(0, 'rgba(255,255,255,0.45)');
+      shine.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.fillStyle = shine;
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.fill();
 
       t += 0.02;
       rafRef.current = requestAnimationFrame(draw);
@@ -159,23 +161,21 @@ export default function About({ lang }) {
             </a>
           </div>
 
-          {/* ── Right: sharp technical experience panel ── */}
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
+          {/* ── Right: experience visual ── */}
+          <div className="about-experience-visual" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0 }}>
             {/* rings */}
             <div style={{ position: 'relative', width: 280, height: 280, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              {/* angular frame 1 */}
               <div style={{
                 position: 'absolute',
                 width: 260, height: 260,
-                borderRadius: 0,
+                borderRadius: '50%',
                 border: '1px solid rgba(0,194,255,0.1)',
                 animation: 'aboutRing1 14s linear infinite',
               }} />
-              {/* angular frame 2 */}
               <div style={{
                 position: 'absolute',
                 width: 300, height: 300,
-                borderRadius: 0,
+                borderRadius: '50%',
                 border: '1px solid rgba(0,194,255,0.06)',
                 animation: 'aboutRing2 20s linear infinite reverse',
               }} />
@@ -184,21 +184,20 @@ export default function About({ lang }) {
               <div style={{
                 position: 'absolute',
                 width: 240, height: 240,
-                borderRadius: 0,
-                background: 'linear-gradient(135deg, rgba(0,194,255,0.06), transparent 70%)',
+                borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(0,194,255,0.12), transparent 70%)',
                 animation: 'aboutGlow 5s ease-in-out infinite',
               }} />
 
-              {/* panel wrapper */}
               <div style={{
                 width: 220, height: 220,
-                borderRadius: 0,
+                borderRadius: '50%',
                 overflow: 'hidden',
                 boxShadow: '0 0 60px rgba(0,194,255,0.2), 0 0 120px rgba(0,194,255,0.08), inset 0 0 40px rgba(0,0,0,0.5)',
                 animation: 'aboutFloat 6s ease-in-out infinite',
                 position: 'relative',
               }}>
-                <ExperiencePanelCanvas />
+                <ExperienceSphereCanvas />
 
                 {/* Premium 3D Number Overlay */}
                 <div style={{
@@ -213,7 +212,8 @@ export default function About({ lang }) {
                     position: 'absolute', top: '50%', left: '50%',
                     transform: 'translate(-50%, -50%)',
                     width: 140, height: 140,
-                    background: 'linear-gradient(135deg, rgba(0,194,255,0.35), transparent 72%)',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, rgba(0,194,255,0.35), transparent 72%)',
                     filter: 'blur(24px)',
                     animation: 'numPulseGlow 4s ease-in-out infinite alternate',
                     zIndex: -1,
@@ -250,6 +250,7 @@ export default function About({ lang }) {
       </div>
 
       <style>{`
+        #about .about-experience-visual [style*="border-radius"] { border-radius: 50% !important; }
         @keyframes aboutRing1 { from { transform: rotate(0deg) scaleX(1.5); } to { transform: rotate(360deg) scaleX(1.5); } }
         @keyframes aboutRing2 { from { transform: rotate(0deg) scaleX(1.6); } to { transform: rotate(360deg) scaleX(1.6); } }
         @keyframes aboutGlow  { 0%,100%{ opacity:.6; transform:scale(1); } 50%{ opacity:1; transform:scale(1.1); } }

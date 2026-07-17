@@ -346,6 +346,3 @@ html body [class]::before,
 html body [class]::after {
   border-radius: 0 !important;
 }
-html body [style*="radial-gradient"] {
-  background-image: linear-gradient(135deg, rgba(0, 194, 255, 0.08), transparent 72%) !important;
-}

@@ -330,7 +330,7 @@ function FeatureRow({ text, index, accent }) {
         transition: 'background 0.3s ease',
         cursor: 'default',
         position: 'relative',
-        minHeight: 58,
+        minHeight: 96,
       }}
     >
       <div style={{
@@ -647,6 +647,13 @@ function TrackedFeatureList({ items, accent, isAr }) {
         {isAr ? 'المميزات' : 'Features'}
       </div>
       <div style={{ position: 'relative' }}>
+        <AnimatedTracker
+          rowCount={items.length}
+          accent={accent}
+          isAr={isAr}
+          label={isAr ? 'ميزة' : 'feat'}
+          containerRef={rowsRef}
+        />
         <div ref={rowsRef}>
           {items.map((f, i) => (
             <FeatureRow key={`f-${i}`} text={f} index={i} accent={accent} />
@@ -670,6 +677,13 @@ function TrackedBenefitList({ items, accent, isAr }) {
         {isAr ? 'الفوائد' : 'Benefits'}
       </div>
       <div style={{ position: 'relative' }}>
+        <AnimatedTracker
+          rowCount={items.length}
+          accent={accent}
+          isAr={isAr}
+          label={isAr ? 'فائدة' : 'ben'}
+          containerRef={rowsRef}
+        />
         <div ref={rowsRef}>
           {items.map((b, i) => (
             <BenefitItem key={`b-${i}`} title={b.title} desc={b.desc} accent={accent} index={i} />
@@ -1309,16 +1323,16 @@ export default function ServiceDetailPage({ lang, setLang }) {
           </div>
 
           {/* Two-column layout: features left, benefits right */}
-          <div className="fb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 60px' }}>
+          <div className="fb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 60px', alignItems: 'stretch' }}>
             {/* Features column */}
-            <div>
+            <div style={{ height: '100%' }}>
               {features && features.length > 0 && (
                 <TrackedFeatureList items={features} accent={accent} isAr={isAr} />
               )}
             </div>
 
             {/* Benefits column */}
-            <div>
+            <div style={{ height: '100%' }}>
               {benefits && benefits.length > 0 && (
                 <TrackedBenefitList items={benefits} accent={accent} isAr={isAr} />
               )}
@@ -1329,23 +1343,14 @@ export default function ServiceDetailPage({ lang, setLang }) {
 
       {/* ── Why Choose Us ── */}
       <section style={{
-        background: 'linear-gradient(135deg, rgba(8, 19, 31, 0.98) 0%, rgba(12, 30, 47, 0.96) 52%, rgba(8, 17, 27, 0.98) 100%)',
+        background: 'var(--bmc-dark-2)',
         padding: '90px 0 100px',
         position: 'relative',
         overflow: 'hidden',
       }}>
-        {/* BG glow */}
-        <div style={{
-          position: 'absolute', top: '40%', left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: 700, height: 700,
-          background: `radial-gradient(circle, ${accent}07 0%, transparent 65%)`,
-          pointerEvents: 'none',
-        }} />
-
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           {/* Two-col layout: heading left, list right */}
-          <div className="why-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: '0 80px', alignItems: 'start' }}>
+          <div className="why-layout" style={{ display: 'grid', gridTemplateColumns: '1fr 1.6fr', gap: '0 80px', alignItems: 'stretch' }}>
 
             {/* Left: sticky heading */}
             <div style={{ position: 'sticky', top: 120 }}>
