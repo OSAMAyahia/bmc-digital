@@ -473,7 +473,7 @@ export default function ServicesPage({ lang }) {
           textAlign: 'center', marginTop: 80,
         }}>
           <p style={{ color: 'rgba(245,240,232,0.45)', fontSize: 15, marginBottom: 28 }}>
-            {isAr ? 'جاهز تبدأ؟ تواصل معنا مباشرة عبر واتساب' : 'Ready to start? Contact us directly on WhatsApp'}
+            {isAr ? 'هل لديك فكرة أو مشروع بيكسر السوق؟' : 'Ready to start? Contact us directly on WhatsApp'}
           </p>
           <a
             href="https://wa.me/966535166370"
@@ -484,13 +484,13 @@ export default function ServicesPage({ lang }) {
               display: 'inline-flex', alignItems: 'center', gap: 12,
               padding: '15px 36px',
               fontWeight: 700, fontSize: 15, letterSpacing: 0.3,
-              textDecoration: 'none', borderRadius: 50,
+              textDecoration: 'none', borderRadius: 0,
               transition: 'none',
               position: 'relative', overflow: 'hidden',
               fontFamily: isAr ? 'Cairo, sans-serif' : 'inherit',
             }}
           >
-            {isAr ? 'جاهز تطور عملك بخدماتنا ؟' : 'Ready to grow your business?'}
+            {isAr ? 'ابدأ مشروعك معنا الآن' : 'Ready to grow your business?'}
           </a>
         </div>
       </div>

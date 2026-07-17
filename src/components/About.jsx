@@ -114,10 +114,14 @@ export default function About({ lang }) {
     return text.replace(/Digital/gi, 'الرقمية');
   };
   
-  const title = normalizeBrandAr(tx.title);
-  const titleSpan = normalizeBrandAr(tx.titleSpan);
-  const desc1 = normalizeBrandAr(tx.desc1);
-  const desc2 = normalizeBrandAr(tx.desc2);
+  const title = lang === 'ar' ? 'شريكك في بناء' : normalizeBrandAr(tx.title);
+  const titleSpan = lang === 'ar' ? 'الحلول الرقمية' : normalizeBrandAr(tx.titleSpan);
+  const desc1 = lang === 'ar'
+    ? 'في البنية الماسية الرقمية، نساعد الشركات ورواد الأعمال على تحويل الأفكار والاحتياجات التشغيلية إلى حلول رقمية وبرمجية احترافية، قابلة للتوسع، ومصممة لدعم نمو الأعمال.'
+    : normalizeBrandAr(tx.desc1);
+  const desc2 = lang === 'ar'
+    ? 'نطوّر المواقع الإلكترونية، المتاجر، تطبيقات الجوال، الأنظمة السحابية، البرمجيات المخصصة، وأنظمة ERP، مع خدمات داعمة تشمل الهوية البصرية وإدارة الحملات الإعلانية.'
+    : normalizeBrandAr(tx.desc2);
 
   return (
     <section
@@ -161,9 +165,9 @@ export default function About({ lang }) {
                 background: 'linear-gradient(135deg, #1A1A4E 0%, #0A3080 100%)',
                 border: 'none',
                 color: '#fff', fontSize: 13, fontWeight: 700,
-                textDecoration: 'none', letterSpacing: 0.5, borderRadius: 50,
+                textDecoration: 'none', letterSpacing: 0.5, borderRadius: 0,
                 transition: 'all 0.3s', overflow: 'hidden',
-                boxShadow: '0 6px 20px rgba(0,194,255,0.3)',
+                boxShadow: 'none',
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.background = 'linear-gradient(135deg, #2A2A6E 0%, #1A4090 100%)';
@@ -173,7 +177,7 @@ export default function About({ lang }) {
               onMouseLeave={e => {
                 e.currentTarget.style.background = 'var(--btn-gradient)';
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,194,255,0.3)';
+                e.currentTarget.style.boxShadow = 'none';
               }}
             >
               <span className="snake-light" />
@@ -270,22 +274,6 @@ export default function About({ lang }) {
               {lang === 'ar' ? 'أعوام من الخبرة' : 'Years of Experience'}
             </p>
 
-            {/* stats row */}
-            <div style={{ display: 'flex', gap: 40, marginTop: 28 }}>
-              {[
-                { num: '+30', label: lang === 'ar' ? 'عميل' : 'Clients' },
-                { num: '+25', label: lang === 'ar' ? 'مشروع منجز' : 'Projects Done' },
-              ].map((s, i) => (
-                <div key={i} style={{ textAlign: 'center' }}>
-                  <div style={{
-                    fontSize: 28, fontWeight: 900, color: '#fff',
-                    textShadow: '0 0 20px rgba(0,194,255,0.3)',
-                    animation: `aboutStatIn 0.8s ease ${0.2 + i * 0.15}s both`,
-                  }}>{s.num}</div>
-                  <div style={{ fontSize: 12, color: 'rgba(245,240,232,0.4)', marginTop: 4 }}>{s.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

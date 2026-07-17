@@ -182,7 +182,6 @@ export default function Footer({ lang }) {
                   </li>
                 ))}
               </ul>
-              <SaudiClock lang={lang} />
             </div>
 
             <div className="footer-col footer-col--services">
@@ -195,20 +194,7 @@ export default function Footer({ lang }) {
                 <li><a href="#services">{lang === 'ar' ? 'التسويق الرقمي' : 'Digital Marketing'}</a></li>
               </ul>
 
-              {/* ── Achievement Stats ── */}
-              <div className="footer-stats">
-                {[
-                  { num: '3',    label: lang === 'ar' ? 'أعوام من الخبرة' : 'Years of Experience' },
-                  { num: '+30',  label: lang === 'ar' ? 'عميل'            : 'Clients' },
-                  { num: '+25',  label: lang === 'ar' ? 'مشروع منجز'      : 'Projects Done' },
-                  { num: '15+',  label: lang === 'ar' ? 'خدمة متاحة'      : 'Services' },
-                ].map(({ num, label }) => (
-                  <div key={label} className="footer-stat-card">
-                    <span className="footer-stat-num">{num}</span>
-                    <span className="footer-stat-label">{label}</span>
-                  </div>
-                ))}
-              </div>
+              <SaudiClock lang={lang} />
             </div>
 
             <div className="footer-col footer-col--contact">

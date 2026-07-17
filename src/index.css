@@ -27,10 +27,10 @@
   /* ── Button — Glassmorphism Neon Blue Pill ── */
   --btn-gradient:       linear-gradient(135deg, #1A1A4E 0%, #0D2060 60%, #0A3080 100%);
   --btn-gradient-hover: linear-gradient(135deg, #2A2A6E 0%, #1D3080 60%, #1A4090 100%);
-  --btn-glow:           0 0 18px rgba(0, 194, 255, 0.45), 0 0 40px rgba(0, 194, 255, 0.25);
+  --btn-glow:           none;
   --btn-glow-hover:     0 0 28px rgba(0, 194, 255, 0.65), 0 0 60px rgba(0, 194, 255, 0.4);
   --btn-inner-glow:     inset 0 1px 0 rgba(0, 194, 255, 0.25), inset 0 -1px 0 rgba(0, 194, 255, 0.1);
-  --btn-radius:         50px;
+  --btn-radius:         0px;
   --btn-border:         1px solid rgba(0, 194, 255, 0.35);
 
   --text-gradient: linear-gradient(135deg, #00C2FF 0%, #00C2FF 100%);
@@ -43,6 +43,7 @@
   margin: 0; padding: 0;
   box-sizing: border-box;
   font-family: 'Cairo', sans-serif !important;
+  border-radius: 0 !important;
 }
 
 html { scroll-behavior: auto; }
@@ -62,7 +63,7 @@ body.ltr { direction: ltr; }
 ::-webkit-scrollbar-track { background: var(--bmc-dark); }
 ::-webkit-scrollbar-thumb {
   background: #00C2FF;
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 /* ════════════════════════════════════════════════
@@ -80,7 +81,7 @@ body.ltr { direction: ltr; }
   min-width: 120px;
   padding: 7px 16px;
   border: 1px solid rgba(0, 194, 255, 0.28);
-  border-radius: 999px;
+  border-radius: 0;
   background: rgba(0, 194, 255, 0.07);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
   font-size: 12px; font-weight: 800; letter-spacing: 0;
@@ -136,7 +137,7 @@ a.btn-primary {
   color:         #fff !important;
   border:        var(--btn-border) !important;
   border-radius: var(--btn-radius) !important;
-  box-shadow:    var(--btn-glow), var(--btn-inner-glow) !important;
+  box-shadow:    none !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
   font-weight:   700 !important;
@@ -198,7 +199,7 @@ button.btn-outline,
 a.btn-outline {
   background:    rgba(0, 194, 255, 0.05) !important;
   border:        1px solid rgba(0, 194, 255, 0.4) !important;
-  box-shadow:    0 0 12px rgba(0, 194, 255, 0.2), var(--btn-inner-glow) !important;
+  box-shadow:    none !important;
 }
 button.btn-outline:hover,
 a.btn-outline:hover {
@@ -211,7 +212,7 @@ a.btn-outline:hover {
 button.btn-danger {
   background:  linear-gradient(135deg, #3A0A0A 0%, #6B1010 100%) !important;
   border:      1px solid rgba(231, 76, 60, 0.35) !important;
-  box-shadow:  0 0 14px rgba(231, 76, 60, 0.25) !important;
+  box-shadow:  none !important;
   color:       #ff6b5d !important;
 }
 
@@ -219,12 +220,12 @@ button.btn-danger {
 button.btn-sm {
   padding: 6px 14px !important;
   font-size: 12px !important;
-  border-radius: 50px !important;
+  border-radius: 0 !important;
 }
 
 /* Toggle — keep circular */
 button.toggle-btn {
-  border-radius: 12px !important;
+  border-radius: 0 !important;
   border: none !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
@@ -232,7 +233,7 @@ button.toggle-btn {
 
 /* Close / icon-only buttons */
 button.icon-btn {
-  border-radius: 50% !important;
+  border-radius: 0 !important;
   padding: 0 !important;
   backdrop-filter: none !important;
 }
@@ -262,7 +263,8 @@ a.snake-edge::before, button.snake-edge::before {
   z-index: -1; pointer-events: none;
 }
 .snake-light { display: none; }
-.snake-btn   { border-radius: var(--btn-radius) !important; }
+.snake-btn   { border-radius: 0 !important; box-shadow: none !important; }
+.snake-btn:hover { box-shadow: var(--btn-glow-hover) !important; }
 
 /* ════════════════════════════════════════════════
    NAV SERVICE ICON
@@ -312,5 +314,19 @@ button.dot-indicator {
 .whatsapp-float {
   background: #25d366 !important;
   border: none !important;
+  box-shadow: none !important;
+}
+.whatsapp-float:hover {
   box-shadow: 0 4px 20px rgba(37,211,102,0.35), 0 8px 40px rgba(0,0,0,0.3) !important;
+}
+
+/* Buttons stay flat at rest; glow is reserved for interaction. */
+a[class*="btn"],
+button {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+a[class*="btn"]:hover,
+button:hover {
+  box-shadow: var(--btn-glow-hover) !important;
 }

@@ -33,12 +33,26 @@ function PhoneArrowIcon({ size = 20 }) {
   return <IconBase size={size}><path d="M22 16.92v2.1a2.1 2.1 0 0 1-2.29 2.1 20.8 20.8 0 0 1-9.08-3.23 20.5 20.5 0 0 1-6.52-6.52A20.8 20.8 0 0 1 .88 2.25 2.1 2.1 0 0 1 2.97 0h2.1a2.1 2.1 0 0 1 2.1 1.81c.13 1.01.37 2 .72 2.95a2.1 2.1 0 0 1-.47 2.21L6.53 7.86a16.8 16.8 0 0 0 6.61 6.61l.89-.89a2.1 2.1 0 0 1 2.21-.47c.95.35 1.94.59 2.95.72A2.1 2.1 0 0 1 22 16.92Z" /><path d="M14 4h6v6" /><path d="m20 4-7 7" /></IconBase>;
 }
 
-function CheckIcon({ size = 18 }) {
-  return <IconBase size={size}><path d="M20 6 9 17l-5-5" /></IconBase>;
+function FeatureSymbol({ index, size = 19 }) {
+  const icons = [
+    <><rect key="a" x="3" y="5" width="18" height="13" /><path key="b" d="M8 21h8M12 18v3M7 9h10" /></>,
+    <><path key="a" d="m13 2-9 12h8l-1 8 9-12h-8l1-8Z" /></>,
+    <><circle key="a" cx="11" cy="11" r="7" /><path key="b" d="m20 20-4-4M8 11h6M11 8v6" /></>,
+    <><rect key="a" x="3" y="3" width="18" height="18" /><path key="b" d="M3 9h18M9 21V9M13 13h4M13 17h4" /></>,
+    <><path key="a" d="M12 3 4 6v5c0 5.2 3.3 8.8 8 10 4.7-1.2 8-4.8 8-10V6l-8-3Z" /><path key="b" d="m9 12 2 2 4-4" /></>,
+  ];
+  return <IconBase size={size}>{icons[index % icons.length]}</IconBase>;
 }
 
-function BenefitTextIcon({ size = 18 }) {
-  return <IconBase size={size}><path d="M5 5h14" /><path d="M5 10h14" /><path d="M5 15h9" /><path d="M5 20h6" /></IconBase>;
+function BenefitSymbol({ index, size = 19 }) {
+  const icons = [
+    <><path key="a" d="M4 19V9M10 19V5M16 19v-7M22 19H2" /></>,
+    <><path key="a" d="M12 3v18M3 12h18" /><path key="b" d="m5 7 7-4 7 4M5 17l7 4 7-4" /></>,
+    <><path key="a" d="M4 17 10 11l4 4 6-8" /><path key="b" d="M15 7h5v5" /></>,
+    <><path key="a" d="M4 20V10l8-6 8 6v10" /><path key="b" d="M8 20v-6h8v6" /></>,
+    <><path key="a" d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" /><path key="b" d="m9 12 2 2 4-4" /></>,
+  ];
+  return <IconBase size={size}>{icons[index % icons.length]}</IconBase>;
 }
 
 function WhatsAppIcon({ size = 20 }) {
@@ -150,6 +164,57 @@ const whyChooseUs = {
   ],
 };
 
+const servicePageCopy = {
+  'web-development': {
+    heroTitleAr: 'تطوير المواقع الإلكترونية',
+    heroSubtitleAr: 'مواقع احترافية مصممة لتعكس هوية مشروعك، وتساعدك على بناء حضور رقمي موثوق وقابل للنمو.',
+    heroCtaAr: 'ابدأ تطوير موقعك الآن',
+    detailDescAr: 'في البنية الماسية الرقمية، نطوّر مواقع إلكترونية احترافية تجمع بين التصميم الحديث، الأداء السريع، سهولة الاستخدام، وقابلية التطوير مستقبلًا. نبدأ من فهم طبيعة مشروعك وأهدافك، ثم نبني موقعًا يعكس هويتك، يوضح خدماتك، ويمنح عملاءك تجربة استخدام واضحة تساعدهم على اتخاذ القرار والتواصل معك بسهولة.',
+    featuresIntroAr: 'مواقع إلكترونية لا تكتفي بالمظهر الاحترافي، بل تُبنى لتخدم أهداف مشروعك وتدعم نموه.',
+    featuresAr: [
+      'تصميم متجاوب مع جميع الأجهزة',
+      'سرعة تحميل محسّنة',
+      'تهيئة أساسية لمحركات البحث SEO',
+      'لوحة إدارة سهلة الاستخدام',
+      'حماية أساسية وشهادة SSL',
+    ],
+    benefitsAr: [
+      { title: 'حضور رقمي احترافي', desc: 'موقع يعكس هوية مشروعك ويعزز ثقة العملاء.' },
+      { title: 'تجربة استخدام أفضل', desc: 'تصفح واضح وسهل يساعد الزائر على الوصول للمعلومة بسرعة.' },
+      { title: 'فرص أعلى للتواصل والتحويل', desc: 'هيكلة صفحات وأزرار تواصل تساعد على تحويل الزوار إلى عملاء محتملين.' },
+      { title: 'قابلية للتطوير مستقبلًا', desc: 'موقع قابل لإضافة صفحات، خدمات، خصائص أو تكاملات جديدة حسب نمو مشروعك.' },
+      { title: 'ثقة وأمان أكبر', desc: 'شهادة SSL وحماية أساسية تمنح زوار موقعك تجربة أكثر موثوقية.' },
+    ],
+    whyAr: [
+      { title: 'خبرة واسعة', desc: 'فريق متخصص في تطوير مواقع احترافية تناسب مختلف القطاعات.' },
+      { title: 'تسليم سريع', desc: 'نلتزم بمواعيد واضحة وتسليم منظم دون تأخير.' },
+      { title: 'جودة عالية', desc: 'كود نظيف وتصميم احترافي يعكس هوية علامتك التجارية.' },
+      { title: 'دعم مستمر', desc: 'نقدم دعمًا فنيًا بعد التسليم لضمان استقرار موقعك.' },
+      { title: 'أسعار تنافسية', desc: 'قيمة مناسبة مقابل جودة تنفيذ عالية.' },
+      { title: 'حلول مخصصة', desc: 'نبني موقعك حسب احتياجات مشروعك، وليس بقالب جاهز.' },
+    ],
+  },
+  'mobile-app-development': {
+    detailDescAr: 'في البنية الماسية الرقمية نطور تطبيقات iOS وأندرويد تبدأ من فهم أهداف مشروعك واحتياجات مستخدميك، وليس من التنفيذ فقط. نصمّم تجربة سريعة وواضحة تسهّل الاستخدام وإنجاز المهام، ونبني أساسًا تقنيًا مستقرًا وقابلًا للتوسع مع نمو نشاطك. فكرتك تستحق تطبيقًا يعمل بكفاءة اليوم، ويتوسّع معك غدًا.',
+    featuresIntroAr: 'نحوّل فكرتك إلى تطبيق مدروس، ونرافقك من مرحلة التخطيط حتى الإطلاق والدعم.',
+    featuresAr: ['Android و iOS', 'أداء عالي', 'واجهة مستخدم جذابة', 'تكامل مع الخدمات الخارجية'],
+    benefitsAr: [
+      { title: 'وصول أوسع لعملائك', desc: 'إتاحة التطبيق على iOS وأندرويد تساعدك على الوصول إلى شريحة أكبر من المستخدمين.' },
+      { title: 'تفاعل أعلى واستخدام متكرر', desc: 'إشعارات موجّهة تُذكّر المستخدم بتطبيقك وتعزّز عودته والتفاعل معه.' },
+      { title: 'إنجاز أسرع لعملائك', desc: 'رحلة استخدام واضحة ومختصرة تقلّل الخطوات وتسهّل إتمام الشراء أو الطلب أو الحجز.' },
+      { title: 'تكلفة أقل مع نمو مشروعك', desc: 'بنية قابلة للتحديث والتوسّع تقلّل تكاليف الصيانة والتطوير مستقبلًا.' },
+    ],
+    whyAr: [
+      { title: 'خبرة متخصصة', desc: 'فريق من المطورين والمصممين يمتلك خبرات متنوعة في بناء الحلول الرقمية.' },
+      { title: 'التزام بالمواعيد', desc: 'خطة تنفيذ واضحة ومراحل تسليم محددة تضمن تقدم المشروع بكفاءة.' },
+      { title: 'معايير جودة عالية', desc: 'كود منظم وتجربة استخدام احترافية تعكس هوية مشروعك وتدعم أهدافه.' },
+      { title: 'دعم بعد الإطلاق', desc: 'متابعة فنية لمعالجة الملاحظات والحفاظ على استقرار الحل الرقمي.' },
+      { title: 'قيمة تنافسية', desc: 'حلول مدروسة تحقق أفضل توازن بين الجودة، الاحتياج، والميزانية.' },
+      { title: 'حلول مصممة لاحتياجك', desc: 'نبني التطبيق وفق أهداف مشروعك ومتطلباته، بعيدًا عن الحلول الجاهزة.' },
+    ],
+  },
+};
+
 /* ── 3D tilt card hook ── */
 function useTilt(strength = 10) {
   const ref = useRef(null);
@@ -210,7 +275,7 @@ function FeatureRow({ text, index, accent }) {
       <div style={{
         width: 34,
         height: 34,
-        borderRadius: '50%',
+        borderRadius: 0,
         display: 'grid',
         placeItems: 'center',
         color: hovered ? '#fff' : accent,
@@ -220,7 +285,7 @@ function FeatureRow({ text, index, accent }) {
         boxShadow: hovered ? `0 0 18px ${accent}66` : 'none',
         transition: 'all 0.25s ease',
       }}>
-        <CheckIcon />
+        <FeatureSymbol index={index} />
       </div>
       <span style={{
         fontSize: 14,
@@ -255,7 +320,7 @@ function BenefitItem({ title, desc, accent, index }) {
         flexShrink: 0,
         width: 38,
         height: 38,
-        borderRadius: 12,
+        borderRadius: 0,
         display: 'grid',
         placeItems: 'center',
         color: accent,
@@ -265,7 +330,7 @@ function BenefitItem({ title, desc, accent, index }) {
         boxShadow: hovered ? `0 0 14px ${accent}33` : 'none',
         transition: 'all 0.3s ease',
       }}>
-        <BenefitTextIcon />
+        <BenefitSymbol index={index} />
       </div>
       <div style={{ flex: 1 }}>
         <h4 style={{
@@ -895,16 +960,28 @@ export default function ServiceDetailPage({ lang, setLang }) {
   }
 
   const isAr = lang === 'ar';
+  const approvedCopy = servicePageCopy[service.slug] || {};
   const title = sanitizeServiceText(isAr ? service.titleAr : service.titleEn);
-  const detailTitle = sanitizeServiceText(isAr ? service.detailTitleAr : service.detailTitleEn);
-  const detailTitleSpan = sanitizeServiceText(isAr ? service.detailTitleSpanAr : service.detailTitleSpanEn);
-  const detailDesc = sanitizeServiceText(isAr ? service.detailDescAr : service.detailDescEn);
-  const features = (isAr ? service.featuresAr : service.featuresEn)?.map(sanitizeServiceText);
-  const benefits = (isAr ? service.benefitsAr : service.benefitsEn)?.map((b) => ({
+  const detailTitle = sanitizeServiceText(isAr && approvedCopy.heroTitleAr ? approvedCopy.heroTitleAr : (isAr ? service.detailTitleAr : service.detailTitleEn));
+  const detailTitleSpan = isAr && approvedCopy.heroTitleAr
+    ? ''
+    : sanitizeServiceText(isAr ? service.detailTitleSpanAr : service.detailTitleSpanEn);
+  const detailDesc = sanitizeServiceText(isAr && approvedCopy.detailDescAr ? approvedCopy.detailDescAr : (isAr ? service.detailDescAr : service.detailDescEn));
+  const features = (isAr && approvedCopy.featuresAr ? approvedCopy.featuresAr : (isAr ? service.featuresAr : service.featuresEn))?.map(sanitizeServiceText) || [];
+  const rawBenefits = (isAr && approvedCopy.benefitsAr ? approvedCopy.benefitsAr : (isAr ? service.benefitsAr : service.benefitsEn))?.map((b) => ({
     ...b,
     title: sanitizeServiceText(b?.title),
     desc: sanitizeServiceText(b?.desc),
-  }));
+  })) || [];
+  const benefits = features.map((feature, index) => rawBenefits[index] || {
+    title: isAr ? `قيمة عملية: ${feature}` : `Practical value: ${feature}`,
+    desc: isAr
+      ? 'تساعد هذه الإمكانية مشروعك على العمل بكفاءة أكبر وتقديم تجربة أفضل للمستخدم.'
+      : 'This capability helps your business operate more efficiently and deliver a better user experience.',
+  });
+  const heroSubtitle = isAr ? approvedCopy.heroSubtitleAr : '';
+  const heroCta = isAr && approvedCopy.heroCtaAr ? approvedCopy.heroCtaAr : (isAr ? 'اطلب الخدمة الآن' : 'Request This Service');
+  const featuresIntro = isAr ? approvedCopy.featuresIntroAr : '';
   const accent = serviceAccents[service.slug] || '#00C2FF';
   const tickerBase = Array.from({ length: 10 }, () => features || []).flat();
   const tickerFeatures = [...tickerBase, ...tickerBase];
@@ -916,7 +993,7 @@ export default function ServiceDetailPage({ lang, setLang }) {
 
   // Sub-types for this service
   const subTypes = serviceSubTypes[service.slug] || [];
-  const whyCards = isAr ? whyChooseUs.ar : whyChooseUs.en;
+  const whyCards = isAr && approvedCopy.whyAr ? approvedCopy.whyAr : (isAr ? whyChooseUs.ar : whyChooseUs.en);
   const orderedServices = (data?.services || [])
     .filter((item) => item?.visible !== false && item?.slug)
     .sort((a, b) => (a?.order ?? 0) - (b?.order ?? 0))
@@ -993,6 +1070,18 @@ export default function ServiceDetailPage({ lang, setLang }) {
             )}
           </h1>
 
+          {heroSubtitle && (
+            <p style={{
+              maxWidth: 780,
+              margin: '0 auto 18px',
+              color: 'rgba(245,240,232,0.68)',
+              fontSize: 'clamp(14px, 1.7vw, 18px)',
+              lineHeight: 1.9,
+            }}>
+              {heroSubtitle}
+            </p>
+          )}
+
           {/* CTA button */}
           <a
             href={serviceWhatsAppHref}
@@ -1009,7 +1098,7 @@ export default function ServiceDetailPage({ lang, setLang }) {
               color: '#fff',
               fontWeight: 800,
               fontSize: 15,
-              borderRadius: 50,
+              borderRadius: 0,
               textDecoration: 'none',
               boxShadow: `0 8px 32px ${accent}44`,
               transition: 'transform 0.25s, box-shadow 0.25s',
@@ -1018,7 +1107,7 @@ export default function ServiceDetailPage({ lang, setLang }) {
             }}
           >
             <SendIcon />
-            {isAr ? 'اطلب الخدمة الآن' : 'Request This Service'}
+            {heroCta}
           </a>
         </div>
       </section>
@@ -1138,6 +1227,17 @@ export default function ServiceDetailPage({ lang, setLang }) {
                   <>Features &<br /><span style={{ background: `linear-gradient(135deg, ${accent} 0%, ${accent}88 100%)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Benefits</span></>
                 )}
               </h2>
+              {featuresIntro && (
+                <p style={{
+                  maxWidth: 690,
+                  margin: '16px 0 0',
+                  color: 'rgba(245,240,232,0.55)',
+                  fontSize: 14,
+                  lineHeight: 1.85,
+                }}>
+                  {featuresIntro}
+                </p>
+              )}
             </div>
             {/* Stat badge */}
             <div style={{
