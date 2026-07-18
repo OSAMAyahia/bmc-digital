@@ -25,13 +25,13 @@
   --bmc-white: #F5F0E8;
 
   /* ── Button — Glassmorphism Neon Blue Pill ── */
-  --btn-gradient:       linear-gradient(135deg, #1A1A4E 0%, #0D2060 60%, #0A3080 100%);
-  --btn-gradient-hover: linear-gradient(135deg, #2A2A6E 0%, #1D3080 60%, #1A4090 100%);
+  --btn-gradient:       linear-gradient(135deg, #007DB8 0%, #061F4F 100%);
+  --btn-gradient-hover: linear-gradient(135deg, #008FD1 0%, #06336F 100%);
   --btn-glow:           none;
-  --btn-glow-hover:     0 0 28px rgba(0, 194, 255, 0.65), 0 0 60px rgba(0, 194, 255, 0.4);
-  --btn-inner-glow:     inset 0 1px 0 rgba(0, 194, 255, 0.25), inset 0 -1px 0 rgba(0, 194, 255, 0.1);
-  --btn-radius:         0px;
-  --btn-border:         1px solid rgba(0, 194, 255, 0.35);
+  --btn-glow-hover:     none;
+  --btn-inner-glow:     none;
+  --btn-radius:         12px;
+  --btn-border:         1px solid rgba(255, 255, 255, 0.46);
 
   --text-gradient: linear-gradient(135deg, #00C2FF 0%, #00C2FF 100%);
 }
@@ -140,7 +140,7 @@ a.btn-primary {
   box-shadow:    none !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
-  font-weight:   700 !important;
+  font-weight:   800 !important;
   transition:    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
                  box-shadow 0.35s ease,
                  background 0.35s ease,
@@ -148,7 +148,7 @@ a.btn-primary {
   position:      relative !important;
   overflow:      hidden !important;
   letter-spacing: 0.5px !important;
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
   isolation: isolate;
 }
 
@@ -176,8 +176,8 @@ button:not(.no-style):not([class*="snav"]):not(.whatsapp-float):not(.faq-toggle)
 .btn-primary:hover,
 a.btn-primary:hover {
   background:  var(--btn-gradient-hover) !important;
-  box-shadow:  var(--btn-glow-hover), var(--btn-inner-glow) !important;
-  transform:   translateY(-4px) scale(1.035) !important;
+  box-shadow:  none !important;
+  transform:   translateY(-3px) !important;
   filter:      saturate(1.18) brightness(1.08);
 }
 
@@ -263,8 +263,15 @@ a.snake-edge::before, button.snake-edge::before {
   z-index: -1; pointer-events: none;
 }
 .snake-light { display: none; }
-.snake-btn   { border-radius: 0 !important; box-shadow: none !important; }
-.snake-btn:hover { box-shadow: var(--btn-glow-hover) !important; }
+.snake-btn {
+  border-radius: var(--btn-radius) !important;
+  box-shadow: none !important;
+}
+.snake-btn:hover {
+  background: var(--btn-gradient-hover) !important;
+  box-shadow: none !important;
+  transform: translateY(-3px) !important;
+}
 
 /* ════════════════════════════════════════════════
    NAV SERVICE ICON
@@ -323,12 +330,12 @@ button.dot-indicator {
 /* Buttons stay flat at rest; glow is reserved for interaction. */
 a[class*="btn"],
 button {
-  border-radius: 0 !important;
+  border-radius: var(--btn-radius) !important;
   box-shadow: none !important;
 }
 a[class*="btn"]:hover,
 button:hover {
-  box-shadow: var(--btn-glow-hover) !important;
+  box-shadow: none !important;
 }
 
 /* Site-wide sharp geometry: navigation, sections, cards, forms and floating UI. */
@@ -345,4 +352,13 @@ html body img {
 html body [class]::before,
 html body [class]::after {
   border-radius: 0 !important;
+}
+
+html body button:not(.icon-btn):not(.burger-btn):not(.whatsapp-float):not([class*="snav"]),
+html body a[class*="btn"],
+html body .snake-btn,
+html body .btn-primary,
+html body .service-detail-btn,
+html body .lang-btn {
+  border-radius: var(--btn-radius) !important;
 }

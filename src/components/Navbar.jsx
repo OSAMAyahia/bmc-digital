@@ -296,28 +296,28 @@ export default function Navbar({ lang, setLang }) {
             onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
             className="lang-btn"
             style={{
-              background: 'linear-gradient(135deg, #1A1A4E 0%, #0A3080 100%)',
-              border: 'none',
+              background: 'var(--btn-gradient)',
+              border: 'var(--btn-border)',
               color: '#fff',
-              padding: '7px 16px',
+              padding: '8px 16px',
               fontSize: 12,
-              fontWeight: 700,
-              letterSpacing: 1,
+              fontWeight: 800,
+              letterSpacing: 0,
               cursor: 'pointer',
-              borderRadius: 50,
-              transition: 'all 0.3s',
+              borderRadius: 12,
+              transition: 'all 0.35s ease',
               fontFamily: 'Cairo, sans-serif',
-              boxShadow: '0 0 16px rgba(0,194,255,0.35), 0 0 32px rgba(0,194,255,0.22), inset 0 1px 0 rgba(0,194,255,0.18)',
+              boxShadow: 'none',
             }}
             onMouseEnter={(e) => {
               e.target.style.background = 'var(--btn-gradient-hover)';
-              e.target.style.transform = 'translateY(-1px)';
-              e.target.style.boxShadow = '0 10px 26px rgba(0,194,255,0.35), 0 10px 40px rgba(0,194,255,0.2)';
+              e.target.style.transform = 'translateY(-3px)';
+              e.target.style.boxShadow = 'none';
             }}
             onMouseLeave={(e) => {
               e.target.style.background = 'var(--btn-gradient)';
               e.target.style.transform = 'translateY(0)';
-              e.target.style.boxShadow = '0 0 16px rgba(0,194,255,0.28), 0 0 32px rgba(0,194,255,0.18)';
+              e.target.style.boxShadow = 'none';
             }}
           >
             {lang === 'ar' ? 'EN' : 'عربي'}
