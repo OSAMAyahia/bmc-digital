@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchAPI, putAPI, postAPI, deleteAPI } from '../api';
 import { getCanonicalServiceImage, overrideServiceDetail } from '../data/digitalMarketingService';
 
-const API_BASE = 'https://bmc-digital-server.vercel.app/api';
+const API_BASE = '/api';
 
 const styles = {
   page: { minHeight: '100vh', background: '#0A0E0D', color: '#F5F0E8', fontFamily: 'Cairo, sans-serif' },
