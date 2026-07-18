@@ -304,7 +304,7 @@ export default function Navbar({ lang, setLang }) {
               fontWeight: 800,
               letterSpacing: 0,
               cursor: 'pointer',
-              borderRadius: 0,
+              borderRadius: 14,
               transition: 'all 0.35s ease',
               fontFamily: 'Cairo, sans-serif',
               boxShadow: 'none',

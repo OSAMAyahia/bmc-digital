@@ -203,7 +203,7 @@ export default function Hero({ lang }) {
                 background: btn1Hovered ? 'linear-gradient(135deg, #008FD1 0%, #06336F 100%)' : 'linear-gradient(135deg, #007DB8 0%, #061F4F 100%)',
                 color: '#fff',
                 fontWeight: 800, fontSize: 14, letterSpacing: 0,
-                textDecoration: 'none', borderRadius: 0,
+                textDecoration: 'none', borderRadius: 14,
                 border: '1px solid rgba(255,255,255,0.46)', transition: 'all 0.35s ease',
                 transform: btn1Hovered ? 'translateY(-3px)' : 'translateY(0)',
                 boxShadow: 'none',
@@ -232,7 +232,7 @@ export default function Hero({ lang }) {
                 fontWeight: 800, fontSize: 14, letterSpacing: 0,
                 textDecoration: 'none',
                 border: btn2Hovered ? '1px solid rgba(255,255,255,0.86)' : '1px solid rgba(255,255,255,0.68)',
-                borderRadius: 0, transition: 'all 0.35s ease',
+                borderRadius: 14, transition: 'all 0.35s ease',
                 transform: btn2Hovered ? 'translateY(-3px)' : 'translateY(0)',
                 boxShadow: 'none',
                 textShadow: '0 1px 2px rgba(0,0,0,0.45)',
@@ -277,7 +277,7 @@ export default function Hero({ lang }) {
           #hero { padding-top: 96px !important; padding-bottom: 110px !important; }
         }
         #hero .hero-cta {
-          border-radius: 0 !important;
+          border-radius: 14px !important;
           letter-spacing: 0 !important;
           overflow: hidden !important;
           box-shadow: none !important;

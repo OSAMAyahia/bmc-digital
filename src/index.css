@@ -30,7 +30,7 @@
   --btn-glow:           none;
   --btn-glow-hover:     none;
   --btn-inner-glow:     none;
-  --btn-radius:         0px;
+  --btn-radius:         14px;
   --btn-border:         1px solid rgba(255, 255, 255, 0.46);
 
   --text-gradient: linear-gradient(135deg, #00C2FF 0%, #00C2FF 100%);
@@ -366,5 +366,15 @@ html body .lang-btn {
 html body .whatsapp-float,
 html body .whatsapp-float::before,
 html body .whatsapp-float::after {
-  border-radius: 18px !important;
+  border-radius: 20px !important;
+}
+
+html body button:not(.icon-btn):not(.burger-btn):not([class*="snav"]),
+html body a[class*="btn"],
+html body button[class*="btn"],
+html body .snake-btn,
+html body .btn-primary,
+html body .service-detail-btn,
+html body .lang-btn {
+  border-radius: var(--btn-radius) !important;
 }

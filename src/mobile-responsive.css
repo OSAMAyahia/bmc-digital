@@ -417,5 +417,5 @@ html body select,
 html body img,
 html body [class]::before,
 html body [class]::after {
-  border-radius: 0 !important;
+  border-radius: var(--btn-radius) !important;
 }
