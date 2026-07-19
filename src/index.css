@@ -369,7 +369,7 @@ html body .whatsapp-float::after {
   border-radius: 50% !important;
 }
 
-html body button:not(.icon-btn):not(.burger-btn):not([class*="snav"]),
+html body button:not(.icon-btn):not(.burger-btn):not(.whatsapp-float):not([class*="snav"]),
 html body a[class*="btn"],
 html body button[class*="btn"],
 html body .snake-btn,
@@ -377,4 +377,10 @@ html body .btn-primary,
 html body .service-detail-btn,
 html body .lang-btn {
   border-radius: var(--btn-radius) !important;
+}
+
+html body .whatsapp-float,
+html body .whatsapp-float::before,
+html body .whatsapp-float::after {
+  border-radius: 50% !important;
 }
