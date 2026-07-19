@@ -419,3 +419,9 @@ html body [class]::before,
 html body [class]::after {
   border-radius: var(--btn-radius) !important;
 }
+
+html body .whatsapp-float,
+html body .whatsapp-float::before,
+html body .whatsapp-float::after {
+  border-radius: 50% !important;
+}
