@@ -13,7 +13,7 @@
   height: 60px;
   background: #25d366;
   border: none;
-  border-radius: 20px;
+  border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35),
               0 8px 40px rgba(0, 0, 0, 0.3);
@@ -138,7 +138,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 20px;
+  border-radius: 50%;
   border: 2px solid #25d366;
   opacity: 0;
   animation: whatsapp-ripple 2s ease-out infinite;
@@ -160,7 +160,7 @@
   content: '';
   position: absolute;
   inset: -5px;
-  border-radius: 24px;
+  border-radius: 50%;
   background: radial-gradient(circle, rgba(37, 211, 102, 0.22), transparent 70%);
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -188,7 +188,7 @@
     width: 50px;
     height: 50px;
     bottom: 30px;
-    border-radius: 18px;
+    border-radius: 50%;
   }
 
   .whatsapp-float.wa-rtl {

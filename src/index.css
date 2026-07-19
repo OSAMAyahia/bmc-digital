@@ -366,7 +366,7 @@ html body .lang-btn {
 html body .whatsapp-float,
 html body .whatsapp-float::before,
 html body .whatsapp-float::after {
-  border-radius: 20px !important;
+  border-radius: 50% !important;
 }
 
 html body button:not(.icon-btn):not(.burger-btn):not([class*="snav"]),
