@@ -200,13 +200,13 @@ export default function Hero({ lang }) {
                 display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', gap: 10,
                 minWidth: 150,
                 padding: '13px 24px',
-                background: btn1Hovered ? 'linear-gradient(135deg, #008FD1 0%, #06336F 100%)' : 'linear-gradient(135deg, #007DB8 0%, #061F4F 100%)',
+                background: btn1Hovered ? 'var(--btn-gradient-hover)' : 'var(--btn-gradient)',
                 color: '#fff',
                 fontWeight: 800, fontSize: 14, letterSpacing: 0,
                 textDecoration: 'none', borderRadius: 14,
-                border: '1px solid rgba(255,255,255,0.46)', transition: 'all 0.35s ease',
+                border: 'var(--btn-border)', transition: 'all 0.35s ease',
                 transform: btn1Hovered ? 'translateY(-3px)' : 'translateY(0)',
-                boxShadow: 'none',
+                boxShadow: btn1Hovered ? 'var(--btn-glow-hover), var(--btn-inner-glow)' : 'var(--btn-inner-glow)',
                 textShadow: '0 1px 2px rgba(0,0,0,0.45)',
               }}
             >
@@ -294,7 +294,7 @@ export default function Hero({ lang }) {
           font-size: 14px !important;
         }
         #hero .hero-cta-primary {
-          background: linear-gradient(135deg, #007DB8 0%, #061F4F 100%) !important;
+          background: var(--btn-gradient) !important;
         }
         #hero .hero-cta-secondary {
           background: rgba(4,8,25,0.64) !important;

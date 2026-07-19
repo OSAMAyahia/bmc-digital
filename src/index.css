@@ -25,13 +25,15 @@
   --bmc-white: #F5F0E8;
 
   /* ── Button — Glassmorphism Neon Blue Pill ── */
-  --btn-gradient:       linear-gradient(135deg, #007DB8 0%, #061F4F 100%);
-  --btn-gradient-hover: linear-gradient(135deg, #008FD1 0%, #06336F 100%);
+  --btn-gradient:       linear-gradient(135deg, rgba(5, 12, 31, 0.92) 0%, rgba(7, 29, 64, 0.86) 52%, rgba(3, 9, 24, 0.94) 100%) padding-box,
+                        linear-gradient(135deg, rgba(0, 194, 255, 0.86) 0%, rgba(108, 99, 255, 0.55) 48%, rgba(184, 164, 114, 0.72) 100%) border-box;
+  --btn-gradient-hover: linear-gradient(135deg, rgba(3, 17, 38, 0.96) 0%, rgba(0, 103, 151, 0.82) 52%, rgba(5, 12, 31, 0.96) 100%) padding-box,
+                        linear-gradient(135deg, rgba(245, 240, 232, 0.82) 0%, rgba(0, 194, 255, 0.88) 42%, rgba(184, 164, 114, 0.82) 100%) border-box;
   --btn-glow:           none;
-  --btn-glow-hover:     none;
-  --btn-inner-glow:     none;
+  --btn-glow-hover:     0 16px 36px rgba(0, 194, 255, 0.18), 0 4px 18px rgba(184, 164, 114, 0.08);
+  --btn-inner-glow:     inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(0,194,255,0.18);
   --btn-radius:         14px;
-  --btn-border:         1px solid rgba(255, 255, 255, 0.46);
+  --btn-border:         1px solid transparent;
 
   --text-gradient: linear-gradient(135deg, #00C2FF 0%, #00C2FF 100%);
 }
@@ -137,7 +139,7 @@ a.btn-primary {
   color:         #fff !important;
   border:        var(--btn-border) !important;
   border-radius: var(--btn-radius) !important;
-  box-shadow:    none !important;
+  box-shadow:    var(--btn-inner-glow) !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
   font-weight:   800 !important;
@@ -159,7 +161,7 @@ a.btn-primary::before {
   position: absolute;
   inset: -2px;
   z-index: 0;
-  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.18) 38%, rgba(255,255,255,0.42) 50%, rgba(255,255,255,0.16) 62%, transparent 100%);
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.1) 38%, rgba(255,255,255,0.26) 50%, rgba(0,194,255,0.12) 62%, transparent 100%);
   transform: translateX(-130%) skewX(-18deg);
   transition: transform 0.7s ease;
   pointer-events: none;
@@ -176,7 +178,7 @@ button:not(.no-style):not([class*="snav"]):not(.whatsapp-float):not(.faq-toggle)
 .btn-primary:hover,
 a.btn-primary:hover {
   background:  var(--btn-gradient-hover) !important;
-  box-shadow:  none !important;
+  box-shadow:  var(--btn-glow-hover), var(--btn-inner-glow) !important;
   transform:   translateY(-3px) !important;
   filter:      saturate(1.18) brightness(1.08);
 }
@@ -331,11 +333,11 @@ button.dot-indicator {
 a[class*="btn"],
 button {
   border-radius: var(--btn-radius) !important;
-  box-shadow: none !important;
+  box-shadow: var(--btn-inner-glow) !important;
 }
 a[class*="btn"]:hover,
 button:hover {
-  box-shadow: none !important;
+  box-shadow: var(--btn-glow-hover), var(--btn-inner-glow) !important;
 }
 
 /* Site-wide sharp geometry: navigation, sections, cards, forms and floating UI. */
@@ -367,6 +369,32 @@ html body .whatsapp-float,
 html body .whatsapp-float::before,
 html body .whatsapp-float::after {
   border-radius: 50% !important;
+}
+
+html body .snake-btn,
+html body .btn-primary,
+html body .service-detail-btn,
+html body .lang-btn,
+html body button:not(.icon-btn):not(.burger-btn):not(.whatsapp-float):not(.faq-toggle):not(.toggle-btn):not([class*="snav"]) {
+  background: var(--btn-gradient) !important;
+  border: var(--btn-border) !important;
+  box-shadow: var(--btn-inner-glow) !important;
+  color: #fff !important;
+}
+
+html body .snake-btn:hover,
+html body .btn-primary:hover,
+html body .service-detail-btn:hover,
+html body .lang-btn:hover,
+html body button:not(.icon-btn):not(.burger-btn):not(.whatsapp-float):not(.faq-toggle):not(.toggle-btn):not([class*="snav"]):hover {
+  background: var(--btn-gradient-hover) !important;
+  box-shadow: var(--btn-glow-hover), var(--btn-inner-glow) !important;
+}
+
+html body .whatsapp-float {
+  background: #25d366 !important;
+  border: none !important;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35), 0 8px 40px rgba(0, 0, 0, 0.3) !important;
 }
 
 html body button:not(.icon-btn):not(.burger-btn):not(.whatsapp-float):not([class*="snav"]),
