@@ -135,7 +135,7 @@ export default function About({ lang }) {
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 marginTop: 40, padding: '12px 28px',
-                background: 'linear-gradient(135deg, #1A1A4E 0%, #0A3080 100%)',
+                background: 'linear-gradient(135deg, #3098d7 0%, #2487c5 100%)',
                 border: 'none',
                 color: '#fff', fontSize: 13, fontWeight: 700,
                 textDecoration: 'none', letterSpacing: 0.5, borderRadius: 0,
@@ -143,12 +143,12 @@ export default function About({ lang }) {
                 boxShadow: 'none',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #2A2A6E 0%, #1A4090 100%)';
+                e.currentTarget.style.background = 'linear-gradient(135deg, #3aa5e6 0%, #247fbb 100%)';
                 e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 0 24px rgba(0,194,255,0.55), 0 0 50px rgba(0,194,255,0.3)';
+                e.currentTarget.style.boxShadow = '0 0 24px rgba(48,152,215,0.55), 0 0 50px rgba(48,152,215,0.3)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = 'var(--btn-gradient)';
+                e.currentTarget.style.background = 'linear-gradient(135deg, #3098d7 0%, #2487c5 100%)';
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = 'none';
               }}

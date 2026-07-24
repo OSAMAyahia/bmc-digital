@@ -8,6 +8,7 @@ import { overrideServiceCard, overrideServiceDetail } from '../data/digitalMarke
 import servicesBgImage from '../assets/ChatGPT Image May 8, 2026, 06_46_13 PM.png';
 
 const WHATSAPP_NUMBER = '966535166370';
+const CTA_BLUE = '#3098d7';
 
 function IconBase({ children, size = 20 }) {
   return (
@@ -368,26 +369,28 @@ function BenefitItem({ title, desc, accent, index }) {
       onMouseLeave={() => setHovered(false)}
       style={{
         display: 'flex',
+        alignItems: 'center',
         gap: 16,
-        padding: '20px 16px 20px 20px',
-        borderBottom: '1px solid rgba(255,255,255,0.05)',
+        padding: '18px 16px 18px 20px',
+        borderBottom: `1px solid rgba(255,255,255,${hovered ? '0.07' : '0.04'})`,
         transition: 'all 0.3s ease',
         cursor: 'default',
-        minHeight: 58,
+        position: 'relative',
+        minHeight: 96,
         background: hovered ? `linear-gradient(90deg, ${accent}06 0%, transparent 60%)` : 'transparent',
       }}
     >
       <div style={{
         flexShrink: 0,
-        width: 38,
-        height: 38,
+        width: 34,
+        height: 34,
         borderRadius: 0,
         display: 'grid',
         placeItems: 'center',
         color: accent,
         background: `${accent}0f`,
         border: `1px solid ${accent}24`,
-        marginTop: 2,
+        marginTop: 0,
         boxShadow: hovered ? `0 0 14px ${accent}33` : 'none',
         transition: 'all 0.3s ease',
       }}>
@@ -637,16 +640,16 @@ function AnimatedTracker({ rowCount, accent, isAr, label, containerRef }) {
 function TrackedFeatureList({ items, accent, isAr }) {
   const rowsRef = useRef(null);
   return (
-    <>
+    <div className="fb-column">
       <div style={{
         fontSize: 11, fontWeight: 800, color: 'rgba(245,240,232,0.35)',
         letterSpacing: '0.14em', textTransform: 'uppercase',
-        marginBottom: 4, paddingBottom: 16,
+        height: 42, marginBottom: 0, paddingBottom: 16,
         borderBottom: `2px solid ${accent}`, display: 'inline-block',
       }}>
         {isAr ? 'المميزات' : 'Features'}
       </div>
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         <AnimatedTracker
           rowCount={items.length}
           accent={accent}
@@ -660,23 +663,23 @@ function TrackedFeatureList({ items, accent, isAr }) {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
 function TrackedBenefitList({ items, accent, isAr }) {
   const rowsRef = useRef(null);
   return (
-    <>
+    <div className="fb-column">
       <div style={{
         fontSize: 11, fontWeight: 800, color: 'rgba(245,240,232,0.35)',
         letterSpacing: '0.14em', textTransform: 'uppercase',
-        marginBottom: 4, paddingBottom: 16,
-        borderBottom: `2px solid ${accent}55`, display: 'inline-block',
+        height: 42, marginBottom: 0, paddingBottom: 16,
+        borderBottom: `2px solid ${accent}`, display: 'inline-block',
       }}>
         {isAr ? 'الفوائد' : 'Benefits'}
       </div>
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         <AnimatedTracker
           rowCount={items.length}
           accent={accent}
@@ -690,7 +693,7 @@ function TrackedBenefitList({ items, accent, isAr }) {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -1160,13 +1163,13 @@ export default function ServiceDetailPage({ lang, setLang }) {
               gap: 10,
               marginTop: 10,
               padding: '14px 32px',
-              background: `linear-gradient(135deg, ${accent} 0%, ${accent}cc 100%)`,
+              background: `linear-gradient(135deg, ${CTA_BLUE} 0%, #2487c5 100%)`,
               color: '#fff',
               fontWeight: 800,
               fontSize: 15,
               borderRadius: 0,
               textDecoration: 'none',
-              boxShadow: `0 8px 32px ${accent}44`,
+              boxShadow: `0 8px 32px ${CTA_BLUE}44`,
               transition: 'transform 0.25s, box-shadow 0.25s',
               animation: 'cardEntry 0.9s cubic-bezier(0.23,1,0.32,1) 0.3s both',
               border: 'none',
@@ -1394,12 +1397,12 @@ export default function ServiceDetailPage({ lang, setLang }) {
                   style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                     padding: '13px 28px',
-                    background: `linear-gradient(135deg, ${accent} 0%, ${accent}cc 100%)`,
+                    background: `linear-gradient(135deg, ${CTA_BLUE} 0%, #2487c5 100%)`,
                     color: '#fff',
                     fontWeight: 800, fontSize: 14,
                     borderRadius: 999,
                     textDecoration: 'none',
-                    boxShadow: `0 8px 26px ${accent}33`,
+                    boxShadow: `0 8px 26px ${CTA_BLUE}33`,
                     transition: 'transform 0.25s, box-shadow 0.25s',
                   }}
                 >
@@ -1409,7 +1412,7 @@ export default function ServiceDetailPage({ lang, setLang }) {
                   href={serviceWhatsAppHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="service-detail-btn"
+                  className="service-detail-btn whatsapp-green-btn"
                   style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                     padding: '13px 28px',
@@ -1598,8 +1601,8 @@ export default function ServiceDetailPage({ lang, setLang }) {
         }
         .service-detail-btn:hover {
           transform: translateY(-5px) scale(1.035) !important;
-          box-shadow: 0 18px 54px rgba(0,0,0,0.36), 0 0 34px ${accent}55 !important;
-          border-color: ${accent}88 !important;
+          box-shadow: 0 18px 54px rgba(0,0,0,0.36), 0 0 34px ${CTA_BLUE}55 !important;
+          border-color: ${CTA_BLUE}88 !important;
           filter: saturate(1.18) brightness(1.08);
         }
         .service-detail-btn:hover::before {

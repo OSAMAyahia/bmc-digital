@@ -25,13 +25,13 @@
   --bmc-white: #F5F0E8;
 
   /* ── Button — Glassmorphism Neon Blue Pill ── */
-  --btn-gradient:       linear-gradient(135deg, rgba(5, 12, 31, 0.92) 0%, rgba(7, 29, 64, 0.86) 52%, rgba(3, 9, 24, 0.94) 100%) padding-box,
-                        linear-gradient(135deg, rgba(0, 194, 255, 0.86) 0%, rgba(108, 99, 255, 0.55) 48%, rgba(184, 164, 114, 0.72) 100%) border-box;
-  --btn-gradient-hover: linear-gradient(135deg, rgba(3, 17, 38, 0.96) 0%, rgba(0, 103, 151, 0.82) 52%, rgba(5, 12, 31, 0.96) 100%) padding-box,
-                        linear-gradient(135deg, rgba(245, 240, 232, 0.82) 0%, rgba(0, 194, 255, 0.88) 42%, rgba(184, 164, 114, 0.82) 100%) border-box;
+  --btn-gradient:       linear-gradient(135deg, #3098d7 0%, #2487c5 100%) padding-box,
+                        linear-gradient(135deg, rgba(255,255,255,0.34), rgba(48,152,215,0.48), rgba(255,255,255,0.08)) border-box;
+  --btn-gradient-hover: linear-gradient(135deg, #3aa5e6 0%, #247fbb 100%) padding-box,
+                        linear-gradient(135deg, rgba(255,255,255,0.46), rgba(48,152,215,0.66), rgba(255,255,255,0.12)) border-box;
   --btn-glow:           none;
-  --btn-glow-hover:     0 16px 36px rgba(0, 194, 255, 0.18), 0 4px 18px rgba(184, 164, 114, 0.08);
-  --btn-inner-glow:     inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(0,194,255,0.18);
+  --btn-glow-hover:     0 16px 36px rgba(48, 152, 215, 0.24), 0 4px 18px rgba(48, 152, 215, 0.12);
+  --btn-inner-glow:     inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(48,152,215,0.22);
   --btn-radius:         14px;
   --btn-border:         1px solid transparent;
 
@@ -395,6 +395,13 @@ html body .whatsapp-float {
   background: #25d366 !important;
   border: none !important;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35), 0 8px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+html body .whatsapp-green-btn,
+html body .whatsapp-green-btn:hover {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow: 0 8px 26px rgba(37,211,102,0.24) !important;
 }
 
 html body button:not(.icon-btn):not(.burger-btn):not(.whatsapp-float):not([class*="snav"]),
