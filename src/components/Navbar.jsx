@@ -509,13 +509,13 @@ export default function Navbar({ lang, setLang }) {
       )}
 
       <style>{`
-        .nav-lang-btn {
+        html body .nav-lang-btn {
           background: linear-gradient(135deg, rgba(5, 12, 31, 0.92) 0%, rgba(7, 29, 64, 0.86) 52%, rgba(3, 9, 24, 0.94) 100%) padding-box,
                       linear-gradient(135deg, rgba(0, 194, 255, 0.86) 0%, rgba(108, 99, 255, 0.55) 48%, rgba(184, 164, 114, 0.72) 100%) border-box !important;
           border: 1px solid transparent !important;
           box-shadow: none !important;
         }
-        .nav-lang-btn:hover {
+        html body .nav-lang-btn:hover {
           background: linear-gradient(135deg, rgba(3, 17, 38, 0.96) 0%, rgba(0, 103, 151, 0.82) 52%, rgba(5, 12, 31, 0.96) 100%) padding-box,
                       linear-gradient(135deg, rgba(245, 240, 232, 0.82) 0%, rgba(0, 194, 255, 0.88) 42%, rgba(184, 164, 114, 0.82) 100%) border-box !important;
           box-shadow: none !important;
