@@ -115,6 +115,10 @@ export default function Navbar({ lang, setLang }) {
           : '1px solid transparent',
         boxShadow: scrolled ? '0 16px 38px rgba(2, 8, 16, 0.24)' : 'none',
         padding: scrolled ? '14px 0' : '22px 0',
+        '--btn-gradient': 'linear-gradient(135deg, rgba(5, 12, 31, 0.92) 0%, rgba(7, 29, 64, 0.86) 52%, rgba(3, 9, 24, 0.94) 100%) padding-box, linear-gradient(135deg, rgba(0, 194, 255, 0.86) 0%, rgba(108, 99, 255, 0.55) 48%, rgba(184, 164, 114, 0.72) 100%) border-box',
+        '--btn-gradient-hover': 'linear-gradient(135deg, rgba(3, 17, 38, 0.96) 0%, rgba(0, 103, 151, 0.82) 52%, rgba(5, 12, 31, 0.96) 100%) padding-box, linear-gradient(135deg, rgba(245, 240, 232, 0.82) 0%, rgba(0, 194, 255, 0.88) 42%, rgba(184, 164, 114, 0.82) 100%) border-box',
+        '--btn-glow-hover': '0 16px 36px rgba(0, 194, 255, 0.18), 0 4px 18px rgba(184, 164, 114, 0.08)',
+        '--btn-inner-glow': 'inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(0,194,255,0.18)',
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
@@ -294,10 +298,10 @@ export default function Navbar({ lang, setLang }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <button
             onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
-            className="nav-lang-btn"
+            className="lang-btn"
             style={{
-              background: 'linear-gradient(135deg, rgba(5, 12, 31, 0.92) 0%, rgba(7, 29, 64, 0.86) 52%, rgba(3, 9, 24, 0.94) 100%) padding-box, linear-gradient(135deg, rgba(0, 194, 255, 0.86) 0%, rgba(108, 99, 255, 0.55) 48%, rgba(184, 164, 114, 0.72) 100%) border-box',
-              border: '1px solid transparent',
+              background: 'var(--btn-gradient)',
+              border: 'var(--btn-border)',
               color: '#fff',
               padding: '8px 16px',
               fontSize: 12,
@@ -310,12 +314,12 @@ export default function Navbar({ lang, setLang }) {
               boxShadow: 'none',
             }}
             onMouseEnter={(e) => {
-              e.target.style.background = 'linear-gradient(135deg, rgba(3, 17, 38, 0.96) 0%, rgba(0, 103, 151, 0.82) 52%, rgba(5, 12, 31, 0.96) 100%) padding-box, linear-gradient(135deg, rgba(245, 240, 232, 0.82) 0%, rgba(0, 194, 255, 0.88) 42%, rgba(184, 164, 114, 0.82) 100%) border-box';
+              e.target.style.background = 'var(--btn-gradient-hover)';
               e.target.style.transform = 'translateY(-3px)';
               e.target.style.boxShadow = 'none';
             }}
             onMouseLeave={(e) => {
-              e.target.style.background = 'linear-gradient(135deg, rgba(5, 12, 31, 0.92) 0%, rgba(7, 29, 64, 0.86) 52%, rgba(3, 9, 24, 0.94) 100%) padding-box, linear-gradient(135deg, rgba(0, 194, 255, 0.86) 0%, rgba(108, 99, 255, 0.55) 48%, rgba(184, 164, 114, 0.72) 100%) border-box';
+              e.target.style.background = 'var(--btn-gradient)';
               e.target.style.transform = 'translateY(0)';
               e.target.style.boxShadow = 'none';
             }}
@@ -509,17 +513,6 @@ export default function Navbar({ lang, setLang }) {
       )}
 
       <style>{`
-        html body button.nav-lang-btn {
-          background: linear-gradient(135deg, rgba(5, 12, 31, 0.92) 0%, rgba(7, 29, 64, 0.86) 52%, rgba(3, 9, 24, 0.94) 100%) padding-box,
-                      linear-gradient(135deg, rgba(0, 194, 255, 0.86) 0%, rgba(108, 99, 255, 0.55) 48%, rgba(184, 164, 114, 0.72) 100%) border-box !important;
-          border: 1px solid transparent !important;
-          box-shadow: none !important;
-        }
-        html body button.nav-lang-btn:hover {
-          background: linear-gradient(135deg, rgba(3, 17, 38, 0.96) 0%, rgba(0, 103, 151, 0.82) 52%, rgba(5, 12, 31, 0.96) 100%) padding-box,
-                      linear-gradient(135deg, rgba(245, 240, 232, 0.82) 0%, rgba(0, 194, 255, 0.88) 42%, rgba(184, 164, 114, 0.82) 100%) border-box !important;
-          box-shadow: none !important;
-        }
         .nav-link {
           text-decoration: none;
           position: relative;
