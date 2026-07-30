@@ -206,7 +206,9 @@ export default function Hero({ lang }) {
                 textDecoration: 'none', borderRadius: 14,
                 border: 'var(--btn-border)', transition: 'all 0.35s ease',
                 transform: btn1Hovered ? 'translateY(-3px)' : 'translateY(0)',
-                boxShadow: btn1Hovered ? 'var(--btn-glow-hover), var(--btn-inner-glow)' : 'var(--btn-inner-glow)',
+                boxShadow: btn1Hovered
+                  ? 'inset 0 0 0 1px rgba(165,235,255,0.18), inset 0 1px 0 rgba(255,255,255,0.16), 0 0 0 1px rgba(0,204,255,0.2), 0 0 4px rgba(0,204,255,0.18), 0 8px 16px rgba(2,12,28,0.3)'
+                  : 'inset 0 0 0 1px rgba(128,218,255,0.14), inset 0 1px 0 rgba(255,255,255,0.14), 0 0 0 1px rgba(0,178,255,0.16), 0 0 3px rgba(0,194,255,0.14), 0 6px 12px rgba(2,12,28,0.24)',
                 textShadow: '0 1px 2px rgba(0,0,0,0.45)',
               }}
             >
@@ -300,7 +302,12 @@ export default function Hero({ lang }) {
         #hero .hero-cta-primary {
           background: var(--btn-gradient) !important;
           border: 2px solid transparent !important;
-          box-shadow: var(--btn-cta-shadow) !important;
+          box-shadow:
+            inset 0 0 0 1px rgba(128,218,255,0.14),
+            inset 0 1px 0 rgba(255,255,255,0.14),
+            0 0 0 1px rgba(0,178,255,0.16),
+            0 0 3px rgba(0,194,255,0.14),
+            0 6px 12px rgba(2,12,28,0.24) !important;
         }
         #hero .hero-cta-secondary {
           background: rgba(4,8,25,0.64) !important;
@@ -310,7 +317,12 @@ export default function Hero({ lang }) {
           background: rgba(4,8,25,0.76) !important;
         }
         #hero .hero-cta:hover {
-          box-shadow: var(--btn-glow-hover), var(--btn-inner-glow) !important;
+          box-shadow:
+            inset 0 0 0 1px rgba(165,235,255,0.18),
+            inset 0 1px 0 rgba(255,255,255,0.16),
+            0 0 0 1px rgba(0,204,255,0.2),
+            0 0 4px rgba(0,204,255,0.18),
+            0 8px 16px rgba(2,12,28,0.3) !important;
         }
         #hero .hero-cta-primary:hover {
           background: var(--btn-gradient-hover) !important;
