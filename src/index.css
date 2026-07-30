@@ -525,11 +525,11 @@ html body .cta-action {
     linear-gradient(135deg, #58baf2 0%, #3098d7 45%, #166aa7 100%) padding-box,
     linear-gradient(135deg, #00c8ff 0%, #219ce8 38%, #79dcff 54%, #0077df 100%) border-box !important;
   box-shadow:
-    inset 0 0 0 1px rgba(128,218,255,0.34),
-    inset 0 1px 0 rgba(255,255,255,0.3),
-    0 0 0 1px rgba(0,178,255,0.46),
-    0 0 8px rgba(0,194,255,0.54),
-    0 0 16px rgba(48,152,215,0.32),
+    inset 0 0 0 1px rgba(128,218,255,0.26),
+    inset 0 1px 0 rgba(255,255,255,0.24),
+    0 0 0 1px rgba(0,178,255,0.32),
+    0 0 6px rgba(0,194,255,0.34),
+    0 0 12px rgba(48,152,215,0.22),
     0 8px 16px rgba(2,12,28,0.28) !important;
 }
 
@@ -545,21 +545,21 @@ html body .service-detail-btn.cta-action::before {
 
 html body .cta-action::after {
   border-radius: calc(var(--btn-radius) + 3px) !important;
-  border: 1px solid rgba(0,194,255,0.5) !important;
+  border: 1px solid rgba(0,194,255,0.36) !important;
   box-shadow:
-    0 0 8px rgba(0,213,255,0.56),
-    0 0 16px rgba(0,148,255,0.42),
-    inset 0 0 7px rgba(0,213,255,0.2) !important;
+    0 0 6px rgba(0,213,255,0.36),
+    0 0 12px rgba(0,148,255,0.26),
+    inset 0 0 6px rgba(0,213,255,0.14) !important;
 }
 
 html body .cta-action:hover {
   border-color: transparent !important;
   box-shadow:
-    inset 0 0 0 1px rgba(165,235,255,0.46),
-    inset 0 1px 0 rgba(255,255,255,0.36),
-    0 0 0 1px rgba(0,204,255,0.62),
-    0 0 10px rgba(0,204,255,0.68),
-    0 0 22px rgba(48,152,215,0.44),
+    inset 0 0 0 1px rgba(165,235,255,0.34),
+    inset 0 1px 0 rgba(255,255,255,0.28),
+    0 0 0 1px rgba(0,204,255,0.42),
+    0 0 8px rgba(0,204,255,0.44),
+    0 0 16px rgba(48,152,215,0.3),
     0 10px 20px rgba(2,12,28,0.34) !important;
 }
 
