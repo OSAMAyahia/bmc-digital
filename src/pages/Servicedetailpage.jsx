@@ -1156,7 +1156,7 @@ export default function ServiceDetailPage({ lang, setLang }) {
             href={serviceWhatsAppHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="service-detail-btn hero-cta-btn"
+            className="service-detail-btn hero-cta-btn cta-action"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -1175,8 +1175,11 @@ export default function ServiceDetailPage({ lang, setLang }) {
               border: 'none',
             }}
           >
-            <SendIcon />
-            {heroCta}
+            <span className="cta-copy">
+              <span className="cta-label">{heroCta}</span>
+              <span className="cta-hint">{isAr ? 'راسلنا الآن عبر واتساب' : 'Message us now on WhatsApp'}</span>
+            </span>
+            <span className="cta-icon"><SendIcon /></span>
           </a>
         </div>
       </section>
@@ -1393,7 +1396,7 @@ export default function ServiceDetailPage({ lang, setLang }) {
                   href={serviceWhatsAppHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="service-detail-btn"
+                  className="service-detail-btn cta-action"
                   style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                     padding: '13px 28px',
@@ -1406,7 +1409,11 @@ export default function ServiceDetailPage({ lang, setLang }) {
                     transition: 'transform 0.25s, box-shadow 0.25s',
                   }}
                 >
-                  <CalendarIcon /> {isAr ? 'احجز استشارة مجانية' : 'Book Free Consultation'}
+                  <span className="cta-copy">
+                    <span className="cta-label">{isAr ? 'احجز استشارة مجانية' : 'Book Free Consultation'}</span>
+                    <span className="cta-hint">{isAr ? 'ناقش فكرتك مع الفريق' : 'Discuss your idea with the team'}</span>
+                  </span>
+                  <span className="cta-icon"><CalendarIcon /></span>
                 </a>
                 <a
                   href={serviceWhatsAppHref}

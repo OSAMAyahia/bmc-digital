@@ -168,6 +168,7 @@ export default function Contact({ lang }) {
                 />
                 {error && <p style={{ color: '#e74c3c', fontSize: 13, textAlign: 'center' }}>{error}</p>}
                 <button
+                  className="cta-action"
                   type="submit"
                   disabled={sending}
                   style={{
@@ -186,10 +187,15 @@ export default function Contact({ lang }) {
                   onMouseEnter={(e) => { if (!sending) { e.currentTarget.style.background = 'var(--btn-gradient-hover)'; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--btn-glow-hover), var(--btn-inner-glow)'; } }}
                   onMouseLeave={(e) => { if (!sending) { e.currentTarget.style.background = 'var(--btn-gradient)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--btn-cta-shadow)'; } }}
                 >
-                  {sending ? (lang === 'ar' ? 'جاري الإرسال...' : 'Sending...') : tx.btn}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
+                  <span className="cta-copy">
+                    <span className="cta-label">{sending ? (lang === 'ar' ? 'جاري الإرسال...' : 'Sending...') : tx.btn}</span>
+                    <span className="cta-hint">{lang === 'ar' ? 'سنراجع رسالتك قريبًا' : 'We will review your message soon'}</span>
+                  </span>
+                  <span className="cta-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
                 </button>
               </form>
             )}

@@ -525,6 +525,7 @@ export default function ServiceRequestForm({ lang, preselectedService }) {
 
       {/* Submit */}
       <button
+        className="cta-action"
         type="submit"
         disabled={sending}
         style={{
@@ -561,10 +562,15 @@ export default function ServiceRequestForm({ lang, preselectedService }) {
           }
         }}
       >
-        {sending ? (isAr ? 'جاري الإرسال...' : 'Sending...') : labels.submit}
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
+        <span className="cta-copy">
+          <span className="cta-label">{sending ? (isAr ? 'جاري الإرسال...' : 'Sending...') : labels.submit}</span>
+          <span className="cta-hint">{isAr ? 'فريقنا هيتابع طلبك' : 'Our team will follow up'}</span>
+        </span>
+        <span className="cta-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </span>
       </button>
 
       <style>{`

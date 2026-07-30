@@ -192,7 +192,7 @@ export default function Hero({ lang }) {
             <SnakeButton
               as="a"
               href="#contact"
-              className="snake-btn hero-cta hero-cta-primary"
+              className="snake-btn hero-cta hero-cta-primary cta-action"
               snakeOptions={{ speed: 0.0035, tailLength: 0.12, lineWidth: 1.35, glowOpacity: 0.38 }}
               onMouseEnter={() => setBtn1Hovered(true)}
               onMouseLeave={() => setBtn1Hovered(false)}
@@ -211,11 +211,15 @@ export default function Hero({ lang }) {
               }}
             >
               <span className="snake-light" />
-              {tx.cta}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
-                style={{ transform: btn1Hovered ? 'translateX(4px)' : 'translateX(0)', transition: 'transform 0.3s ease' }}>
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <span className="cta-copy">
+                <span className="cta-label">{tx.cta}</span>
+                <span className="cta-hint">{lang === 'ar' ? 'ابدأ مشروعك بخطوة واضحة' : 'Start with a clear next step'}</span>
+              </span>
+              <span className="cta-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
             </SnakeButton>
 
             <a

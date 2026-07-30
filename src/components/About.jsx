@@ -129,7 +129,7 @@ export default function About({ lang }) {
 
             <a
               href={whatsappUrl}
-              className="snake-btn"
+              className="snake-btn cta-action"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -154,10 +154,15 @@ export default function About({ lang }) {
               }}
             >
               <span className="snake-light" />
-              {lang === 'ar' ? 'تواصل معنا' : 'Get in Touch'}
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <span className="cta-copy">
+                <span className="cta-label">{lang === 'ar' ? 'تواصل معنا' : 'Get in Touch'}</span>
+                <span className="cta-hint">{lang === 'ar' ? 'خلينا نبدأ الحوار' : 'Let’s start the conversation'}</span>
+              </span>
+              <span className="cta-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
             </a>
           </div>
 
