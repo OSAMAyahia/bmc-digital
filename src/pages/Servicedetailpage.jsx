@@ -196,6 +196,9 @@ const servicePageCopy = {
       { title: 'حلول مخصصة', desc: 'نبني موقعك حسب احتياجات مشروعك، وليس بقالب جاهز.' },
     ],
   },
+  'e-commerce-website-development': {
+    detailDescAr: 'نطوّر أنظمة ERP متكاملة تربط جميع أقسام شركتك في منصة واحدة، تشمل الإدارة المالية، المبيعات، المخزون، الموارد البشرية والعمليات، بما يسهّل متابعة الأداء، يقلّل الأخطاء، ويساعدك على اتخاذ قرارات دقيقة تدعم نمو أعمالك.',
+  },
   'mobile-app-development': {
     detailDescAr: 'في البنية الماسية الرقمية نطور تطبيقات iOS وأندرويد تبدأ من فهم أهداف مشروعك واحتياجات مستخدميك، وليس من التنفيذ فقط. نصمّم تجربة سريعة وواضحة تسهّل الاستخدام وإنجاز المهام، ونبني أساسًا تقنيًا مستقرًا وقابلًا للتوسع مع نمو نشاطك. فكرتك تستحق تطبيقًا يعمل بكفاءة اليوم، ويتوسّع معك غدًا.',
     featuresIntroAr: 'نحوّل فكرتك إلى تطبيق مدروس، ونرافقك من مرحلة التخطيط حتى الإطلاق والدعم.',
@@ -465,6 +468,7 @@ function WhyCard({ title, desc, accent, delay = 0, isAr = false, index = 0, isAc
 
 /* ── Animated Tracker Box ── */
 function AnimatedTracker({ rowCount, accent, isAr, label, containerRef }) {
+  const TRACKER_HEIGHT = 40;
   const [activeIdx, setActiveIdx] = useState(0);
   const [phase, setPhase] = useState('visible');
   const [displayNum, setDisplayNum] = useState(1);
@@ -485,7 +489,7 @@ function AnimatedTracker({ rowCount, accent, isAr, label, containerRef }) {
     if (!rows[idx]) return 0;
     // offsetTop is relative to offsetParent — accurate for absolute positioning
     const rowEl = rows[idx];
-    return rowEl.offsetTop + rowEl.offsetHeight / 2 - 19;
+    return rowEl.offsetTop + rowEl.offsetHeight / 2 - TRACKER_HEIGHT / 2;
   };
 
   useEffect(() => {
@@ -510,7 +514,7 @@ function AnimatedTracker({ rowCount, accent, isAr, label, containerRef }) {
             if (!container) return;
             const rows = Array.from(container.children);
             if (!rows[next]) return;
-            setTrackerY(rows[next].offsetTop + rows[next].offsetHeight / 2 - 19);
+            setTrackerY(rows[next].offsetTop + rows[next].offsetHeight / 2 - TRACKER_HEIGHT / 2);
           });
           return next;
         });
@@ -576,10 +580,10 @@ function AnimatedTracker({ rowCount, accent, isAr, label, containerRef }) {
   return (
     <div style={{
       position: 'absolute',
-      [isAr ? 'right' : 'left']: -60,
+      [isAr ? 'right' : 'left']: -90,
       top: 0,
       bottom: 0,
-      width: 44,
+      width: 80,
       pointerEvents: 'none',
       zIndex: 10,
     }}>
@@ -600,20 +604,30 @@ function AnimatedTracker({ rowCount, accent, isAr, label, containerRef }) {
         left: '50%',
         transform: 'translateX(-50%)',
         transition: 'top 0.55s cubic-bezier(0.4, 0, 0.2, 1)',
-        width: 40,
-        height: 38,
-        borderRadius: 8,
+        width: 76,
+        height: TRACKER_HEIGHT,
+        borderRadius: 999,
         border: `1.5px solid ${accent}`,
-        background: `linear-gradient(135deg, ${accent}1c 0%, ${accent}06 100%)`,
-        boxShadow: `0 0 18px ${accent}55, 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.08)`,
+        background: `linear-gradient(135deg, ${accent}20 0%, ${accent}08 100%)`,
+        boxShadow: `0 0 20px ${accent}55, 0 8px 18px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.12)`,
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: isAr ? 'row-reverse' : 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        gap: 2,
+        gap: 7,
+        padding: '0 10px',
       }}>
+        <span style={{
+          width: 10,
+          height: 10,
+          borderRadius: '50%',
+          background: accent,
+          boxShadow: `0 0 10px ${accent}, 0 0 18px ${accent}99`,
+          flexShrink: 0,
+        }} />
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
         <div style={{
-          fontSize: 13,
+          fontSize: 12,
           fontWeight: 900,
           color: accent,
           fontFamily: 'monospace',
@@ -624,7 +638,7 @@ function AnimatedTracker({ rowCount, accent, isAr, label, containerRef }) {
           {String(displayNum).padStart(2, '0')}
         </div>
         <div style={{
-          fontSize: 7,
+          fontSize: 8,
           fontWeight: 700,
           color: `${accent}88`,
           letterSpacing: '0.08em',
@@ -632,6 +646,7 @@ function AnimatedTracker({ rowCount, accent, isAr, label, containerRef }) {
           lineHeight: 1,
         }}>
           {label}
+        </div>
         </div>
       </div>
     </div>

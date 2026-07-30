@@ -26,23 +26,26 @@ export default function SnakeButton({
     const pad = snakeOptions.pad ?? 2;
     const startAt = snakeOptions.startAt || 'right';
     let radius = parseFloat(getComputedStyle(btn).borderRadius) || 10;
+    let boxWidth = 0;
+    let boxHeight = 0;
     let progress = 0;
     let rafId = null;
     let resizeObserver = null;
 
     function resize() {
       radius = parseFloat(getComputedStyle(btn).borderRadius) || 10;
-      const w = btn.offsetWidth + pad * 2;
-      const h = btn.offsetHeight + pad * 2;
+      boxWidth = btn.offsetWidth;
+      boxHeight = btn.offsetHeight;
+      const w = boxWidth + pad * 2;
+      const h = boxHeight + pad * 2;
       canvas.width = w;
       canvas.height = h;
       canvas.style.width = `${w}px`;
       canvas.style.height = `${h}px`;
 
-      // Start from the right edge so RTL and LTR feel consistent.
-      const r = Math.min(radius, w / 2 - 1, h / 2 - 1);
-      const sw = w - 2 * r;
-      const sh = h - 2 * r;
+      const r = Math.min(radius, boxWidth / 2 - 1, boxHeight / 2 - 1);
+      const sw = boxWidth - 2 * r;
+      const sh = boxHeight - 2 * r;
       const totalPerim = 2 * sw + 2 * sh + Math.PI * 2 * r;
       if (totalPerim > 0) {
         if (startAt === 'right') progress = sw / totalPerim;
@@ -53,8 +56,10 @@ export default function SnakeButton({
     }
 
     function getPoint(t) {
-      const w = canvas.width;
-      const h = canvas.height;
+      const x0 = pad;
+      const y0 = pad;
+      const w = boxWidth;
+      const h = boxHeight;
       const r = Math.min(radius, w / 2 - 1, h / 2 - 1);
       const sw = w - 2 * r;
       const sh = h - 2 * r;
@@ -63,31 +68,31 @@ export default function SnakeButton({
       t = ((t % 1) + 1) % 1;
       let d = t * totalPerim;
 
-      if (d <= sw) return { x: r + d, y: 0 };
+      if (d <= sw) return { x: x0 + r + d, y: y0 };
       d -= sw;
       if (d <= arcQ) {
         const a = -Math.PI / 2 + d / r;
-        return { x: w - r + Math.cos(a) * r, y: r + Math.sin(a) * r };
+        return { x: x0 + w - r + Math.cos(a) * r, y: y0 + r + Math.sin(a) * r };
       }
       d -= arcQ;
-      if (d <= sh) return { x: w, y: r + d };
+      if (d <= sh) return { x: x0 + w, y: y0 + r + d };
       d -= sh;
       if (d <= arcQ) {
         const a = d / r;
-        return { x: w - r + Math.cos(a) * r, y: h - r + Math.sin(a) * r };
+        return { x: x0 + w - r + Math.cos(a) * r, y: y0 + h - r + Math.sin(a) * r };
       }
       d -= arcQ;
-      if (d <= sw) return { x: w - r - d, y: h };
+      if (d <= sw) return { x: x0 + w - r - d, y: y0 + h };
       d -= sw;
       if (d <= arcQ) {
         const a = Math.PI / 2 + d / r;
-        return { x: r + Math.cos(a) * r, y: h - r + Math.sin(a) * r };
+        return { x: x0 + r + Math.cos(a) * r, y: y0 + h - r + Math.sin(a) * r };
       }
       d -= arcQ;
-      if (d <= sh) return { x: 0, y: h - r - d };
+      if (d <= sh) return { x: x0, y: y0 + h - r - d };
       d -= sh;
       const a2 = Math.PI + d / r;
-      return { x: r + Math.cos(a2) * r, y: r + Math.sin(a2) * r };
+      return { x: x0 + r + Math.cos(a2) * r, y: y0 + r + Math.sin(a2) * r };
     }
 
     function draw() {
