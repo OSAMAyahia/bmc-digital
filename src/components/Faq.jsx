@@ -73,7 +73,7 @@ export default function FAQ({ lang }) {
               style={{
                 border: '1px solid rgba(0,194,255,0.14)',
                 borderRadius: 16,
-                padding: '0 8px',
+                padding: 0,
                 margin: '12px 0',
                 background: openIndex === i
                   ? 'linear-gradient(135deg, rgba(108,99,255,0.06) 0%, rgba(0,194,255,0.04) 100%)'
@@ -91,10 +91,12 @@ export default function FAQ({ lang }) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
+                  flexDirection: 'row',
                   gap: 16,
-                  padding: '22px 0',
+                  padding: '22px 18px',
                   background: 'transparent',
                   border: 'none',
+                  outline: 'none',
                   cursor: 'pointer',
                   textAlign: lang === 'ar' ? 'right' : 'left',
                   fontFamily: 'Cairo, sans-serif',
@@ -104,6 +106,7 @@ export default function FAQ({ lang }) {
                   fontSize: 16, fontWeight: 600,
                   color: openIndex === i ? 'var(--neon-blue)' : 'var(--bmc-white)',
                   lineHeight: 1.5, transition: 'color 0.3s', flex: 1,
+                  textAlign: lang === 'ar' ? 'right' : 'left',
                 }}>
                   {item.q}
                 </span>
@@ -128,8 +131,7 @@ export default function FAQ({ lang }) {
                 <p style={{
                   fontSize: 15, color: 'rgba(245,240,232,0.6)', lineHeight: 1.9,
                   paddingBottom: 24,
-                  paddingInline: 6,
-                  paddingInlineEnd: 'clamp(16px, 5vw, 48px)',
+                  paddingInline: lang === 'ar' ? '18px 66px' : '66px 18px',
                   textAlign: lang === 'ar' ? 'right' : 'left',
                 }}>
                   {item.a}

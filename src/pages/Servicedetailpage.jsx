@@ -339,9 +339,9 @@ function FeatureRow({ text, index, accent }) {
       }}
     >
       <div style={{
-        width: 34,
-        height: 34,
-        borderRadius: 0,
+        width: 32,
+        height: 32,
+        borderRadius: '50%',
         display: 'grid',
         placeItems: 'center',
         color: hovered ? '#fff' : accent,
@@ -386,9 +386,9 @@ function BenefitItem({ title, desc, accent, index }) {
     >
       <div style={{
         flexShrink: 0,
-        width: 34,
-        height: 34,
-        borderRadius: 0,
+        width: 32,
+        height: 32,
+        borderRadius: '50%',
         display: 'grid',
         placeItems: 'center',
         color: accent,
@@ -468,7 +468,7 @@ function WhyCard({ title, desc, accent, delay = 0, isAr = false, index = 0, isAc
 
 /* ── Animated Tracker Box ── */
 function AnimatedTracker({ rowCount, accent, isAr, label, containerRef }) {
-  const TRACKER_HEIGHT = 40;
+  const TRACKER_HEIGHT = 28;
   const [activeIdx, setActiveIdx] = useState(0);
   const [phase, setPhase] = useState('visible');
   const [displayNum, setDisplayNum] = useState(1);
@@ -580,73 +580,80 @@ function AnimatedTracker({ rowCount, accent, isAr, label, containerRef }) {
   return (
     <div style={{
       position: 'absolute',
-      [isAr ? 'right' : 'left']: -90,
+      [isAr ? 'right' : 'left']: -112,
       top: 0,
       bottom: 0,
-      width: 80,
+      width: 96,
       pointerEvents: 'none',
       zIndex: 10,
     }}>
       {/* Track line */}
       <div style={{
         position: 'absolute',
-        left: '50%',
-        top: 10, bottom: 10,
+        [isAr ? 'right' : 'left']: 18,
+        top: 14,
+        bottom: 14,
         width: 1,
-        background: `linear-gradient(180deg, transparent 0%, ${accent}55 15%, ${accent}55 85%, transparent 100%)`,
-        transform: 'translateX(-50%)',
+        background: `linear-gradient(180deg, transparent 0%, ${accent}30 20%, ${accent}30 80%, transparent 100%)`,
+        boxShadow: `0 0 8px ${accent}22`,
       }} />
 
-      {/* Moving box */}
+      {/* Active stage marker */}
       <div style={{
         position: 'absolute',
         top: trackerY,
-        left: '50%',
-        transform: 'translateX(-50%)',
+        [isAr ? 'right' : 'left']: 0,
         transition: 'top 0.55s cubic-bezier(0.4, 0, 0.2, 1)',
-        width: 76,
+        width: 96,
         height: TRACKER_HEIGHT,
-        borderRadius: 999,
-        border: `1.5px solid ${accent}`,
-        background: `linear-gradient(135deg, ${accent}20 0%, ${accent}08 100%)`,
-        boxShadow: `0 0 20px ${accent}55, 0 8px 18px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.12)`,
-        display: 'flex',
-        flexDirection: isAr ? 'row-reverse' : 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 7,
-        padding: '0 10px',
       }}>
         <span style={{
-          width: 10,
-          height: 10,
+          position: 'absolute',
+          [isAr ? 'right' : 'left']: 12,
+          top: '50%',
+          transform: 'translateY(-50%)',
+          width: 13,
+          height: 13,
           borderRadius: '50%',
           background: accent,
-          boxShadow: `0 0 10px ${accent}, 0 0 18px ${accent}99`,
-          flexShrink: 0,
+          border: '2px solid rgba(214,247,255,0.58)',
+          boxShadow: `0 0 0 5px ${accent}16, 0 0 12px ${accent}, 0 0 22px ${accent}80`,
         }} />
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
         <div style={{
-          fontSize: 12,
-          fontWeight: 900,
-          color: accent,
-          fontFamily: 'monospace',
-          lineHeight: 1,
+          position: 'absolute',
+          top: '50%',
+          [isAr ? 'right' : 'left']: 32,
+          transform: 'translateY(-50%)',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 7,
+          minWidth: 58,
+          padding: '6px 10px',
+          borderRadius: 999,
+          border: `1px solid ${accent}36`,
+          background: 'rgba(6,12,25,0.76)',
+          boxShadow: `0 8px 18px rgba(0,0,0,0.24), 0 0 12px ${accent}18`,
           ...slideStyle,
           transition: 'opacity 0.26s ease, transform 0.26s cubic-bezier(0.4,0,0.2,1)',
         }}>
-          {String(displayNum).padStart(2, '0')}
-        </div>
-        <div style={{
-          fontSize: 8,
-          fontWeight: 700,
-          color: `${accent}88`,
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-          lineHeight: 1,
-        }}>
-          {label}
-        </div>
+          <span style={{
+            fontSize: 10,
+            fontWeight: 900,
+            color: accent,
+            fontFamily: 'monospace',
+            lineHeight: 1,
+          }}>
+            {String(displayNum).padStart(2, '0')}
+          </span>
+          <span style={{
+            fontSize: 10.5,
+            fontWeight: 800,
+            color: 'rgba(245,240,232,0.86)',
+            lineHeight: 1,
+            whiteSpace: 'nowrap',
+          }}>
+            {label}
+          </span>
         </div>
       </div>
     </div>
