@@ -1631,6 +1631,13 @@ export default function ServiceDetailPage({ lang, setLang }) {
           transition: transform 0.65s ease;
           pointer-events: none;
         }
+        .service-detail-btn.cta-action::before,
+        .service-detail-btn.cta-action:hover::before {
+          content: none !important;
+          display: none !important;
+          background: none !important;
+          transform: none !important;
+        }
         .service-detail-btn > * {
           position: relative;
           z-index: 2;

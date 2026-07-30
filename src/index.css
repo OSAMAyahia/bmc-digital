@@ -533,6 +533,16 @@ html body .cta-action {
     0 8px 16px rgba(2,12,28,0.28) !important;
 }
 
+html body .cta-action::before,
+html body .cta-action:hover::before,
+html body .snake-btn.cta-action::before,
+html body .service-detail-btn.cta-action::before {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  transform: none !important;
+}
+
 html body .cta-action::after {
   border-radius: calc(var(--btn-radius) + 3px) !important;
   border: 1px solid rgba(0,194,255,0.5) !important;
