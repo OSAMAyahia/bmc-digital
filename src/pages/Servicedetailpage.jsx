@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SnakeButton from '../components/SnakeButton';
 import { useReveal } from '../hooks/useReveal';
 import { useData } from '../DataContext';
 import { overrideServiceCard, overrideServiceDetail } from '../data/digitalMarketingService';
@@ -1152,16 +1153,18 @@ export default function ServiceDetailPage({ lang, setLang }) {
           )}
 
           {/* CTA button */}
-          <a
+          <SnakeButton
+            as="a"
             href={serviceWhatsAppHref}
             target="_blank"
             rel="noopener noreferrer"
             className="service-detail-btn hero-cta-btn cta-action"
+            wrapperStyle={{ marginTop: 10 }}
+            snakeOptions={{ speed: 0.0042, tailLength: 0.18, lineWidth: 3, glowOpacity: 0.95, pad: 4 }}
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: 10,
-              marginTop: 10,
               padding: '14px 32px',
               background: `linear-gradient(135deg, ${CTA_BLUE} 0%, #2487c5 100%)`,
               color: '#fff',
@@ -1180,7 +1183,7 @@ export default function ServiceDetailPage({ lang, setLang }) {
               <span className="cta-hint">{isAr ? 'راسلنا الآن عبر واتساب' : 'Message us now on WhatsApp'}</span>
             </span>
             <span className="cta-icon"><SendIcon /></span>
-          </a>
+          </SnakeButton>
         </div>
       </section>
 
@@ -1392,11 +1395,14 @@ export default function ServiceDetailPage({ lang, setLang }) {
               </p>
               {/* CTA buttons stacked */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-                <a
+                <SnakeButton
+                  as="a"
                   href={serviceWhatsAppHref}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="service-detail-btn cta-action"
+                  wrapperStyle={{ width: '100%' }}
+                  snakeOptions={{ speed: 0.0042, tailLength: 0.18, lineWidth: 3, glowOpacity: 0.95, pad: 4 }}
                   style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
                     padding: '13px 28px',
@@ -1405,6 +1411,7 @@ export default function ServiceDetailPage({ lang, setLang }) {
                     fontWeight: 800, fontSize: 14,
                     borderRadius: 999,
                     textDecoration: 'none',
+                    width: '100%',
                     boxShadow: `0 8px 26px ${CTA_BLUE}33`,
                     transition: 'transform 0.25s, box-shadow 0.25s',
                   }}
@@ -1414,7 +1421,7 @@ export default function ServiceDetailPage({ lang, setLang }) {
                     <span className="cta-hint">{isAr ? 'ناقش فكرتك مع الفريق' : 'Discuss your idea with the team'}</span>
                   </span>
                   <span className="cta-icon"><CalendarIcon /></span>
-                </a>
+                </SnakeButton>
                 <a
                   href={serviceWhatsAppHref}
                   target="_blank"

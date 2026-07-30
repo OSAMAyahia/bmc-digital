@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useData } from '../DataContext';
 import { getCanonicalServiceImage, overrideServiceCard } from '../data/digitalMarketingService';
+import SnakeButton from './SnakeButton';
 
 const serviceDetailSlugs = [
   'web-development','mobile-app-development','e-commerce-website-development',
@@ -475,11 +476,13 @@ export default function ServicesPage({ lang }) {
           <p style={{ color: 'rgba(245,240,232,0.45)', fontSize: 15, marginBottom: 28 }}>
             {isAr ? 'هل لديك فكرة أو مشروع بيكسر السوق؟' : 'Ready to start? Contact us directly on WhatsApp'}
           </p>
-          <a
+          <SnakeButton
+            as="a"
             href="https://wa.me/966535166370"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary svc-wa-btn"
+            className="svc-wa-btn cta-action"
+            snakeOptions={{ speed: 0.0042, tailLength: 0.18, lineWidth: 3, glowOpacity: 0.95, pad: 4 }}
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 12,
               padding: '15px 36px',
@@ -491,7 +494,7 @@ export default function ServicesPage({ lang }) {
             }}
           >
             {isAr ? 'ابدأ مشروعك معنا الآن' : 'Ready to grow your business?'}
-          </a>
+          </SnakeButton>
         </div>
       </div>
 
@@ -499,6 +502,10 @@ export default function ServicesPage({ lang }) {
         .svc-wa-btn {
           overflow: hidden !important;
           isolation: isolate;
+        }
+        .svc-wa-btn::before {
+          content: none !important;
+          display: none !important;
         }
         .svc-wa-btn > span { border-radius: 999px; }
 

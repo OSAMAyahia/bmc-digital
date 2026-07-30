@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useData } from '../DataContext';
 import { useAnimate } from '../hooks/useAnimate';
 import { postAPI } from '../api';
+import SnakeButton from './SnakeButton';
 import '../animations.css';
 
 const contactIconStyle = { width: 21, height: 21, display: 'block' };
@@ -167,10 +168,13 @@ export default function Contact({ lang }) {
                   onBlur={(e) => (e.target.style.borderColor = 'rgba(0,194,255,0.2)')}
                 />
                 {error && <p style={{ color: '#e74c3c', fontSize: 13, textAlign: 'center' }}>{error}</p>}
-                <button
+                <SnakeButton
+                  as="button"
                   className="cta-action"
                   type="submit"
                   disabled={sending}
+                  wrapperStyle={{ width: '100%' }}
+                  snakeOptions={{ speed: 0.0042, tailLength: 0.18, lineWidth: 3, glowOpacity: 0.95, pad: 4 }}
                   style={{
                     background: sending ? 'rgba(0,194,255,0.5)' : 'var(--btn-gradient)',
                     color: '#fff',
@@ -182,6 +186,7 @@ export default function Contact({ lang }) {
                     letterSpacing: 0.5, borderRadius: 50, transition: 'all 0.3s',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     gap: 8, opacity: sending ? 0.7 : 1,
+                    width: '100%',
                     boxShadow: 'var(--btn-cta-shadow)',
                   }}
                   onMouseEnter={(e) => { if (!sending) { e.currentTarget.style.background = 'var(--btn-gradient-hover)'; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--btn-glow-hover), var(--btn-inner-glow)'; } }}
@@ -196,7 +201,7 @@ export default function Contact({ lang }) {
                       <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                   </span>
-                </button>
+                </SnakeButton>
               </form>
             )}
           </div>

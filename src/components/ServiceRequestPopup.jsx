@@ -262,7 +262,7 @@ export default function ServiceRequestPopup({
             type="button"
             onClick={() => setOpen(true)}
             className="snake-btn"
-            snakeOptions={{ speed: 0.0035, tailLength: 0.2, lineWidth: 2 }}
+            snakeOptions={{ speed: 0.0042, tailLength: 0.18, lineWidth: 3, glowOpacity: 0.95, pad: 4 }}
             style={{
               background: 'linear-gradient(135deg, #1A1A4E 0%, #0A3080 100%)',
               color: '#fff',

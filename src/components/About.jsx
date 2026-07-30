@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useData } from '../DataContext';
 import { useAnimate } from '../hooks/useAnimate';
+import SnakeButton from './SnakeButton';
 import '../animations.css';
 
 function ExperienceSphereCanvas() {
@@ -127,14 +128,17 @@ export default function About({ lang }) {
             <p style={{ fontSize: 15, color: 'rgba(245,240,232,0.65)', lineHeight: 2, marginBottom: 20 }}>{desc1}</p>
             <p style={{ fontSize: 15, color: 'rgba(245,240,232,0.65)', lineHeight: 2 }}>{desc2}</p>
 
-            <a
+            <SnakeButton
+              as="a"
               href={whatsappUrl}
               className="snake-btn cta-action"
               target="_blank"
               rel="noopener noreferrer"
+              wrapperStyle={{ marginTop: 40 }}
+              snakeOptions={{ speed: 0.0042, tailLength: 0.18, lineWidth: 3, glowOpacity: 0.95, pad: 4 }}
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
-                marginTop: 40, padding: '12px 28px',
+                padding: '12px 28px',
                 background: 'var(--btn-gradient)',
                 border: 'var(--btn-border)',
                 color: '#fff', fontSize: 13, fontWeight: 700,
@@ -163,7 +167,7 @@ export default function About({ lang }) {
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </span>
-            </a>
+            </SnakeButton>
           </div>
 
           {/* ── Right: experience visual ── */}

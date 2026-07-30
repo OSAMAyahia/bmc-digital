@@ -193,7 +193,7 @@ export default function Hero({ lang }) {
               as="a"
               href="#contact"
               className="snake-btn hero-cta hero-cta-primary cta-action"
-              snakeOptions={{ speed: 0.0035, tailLength: 0.12, lineWidth: 1.35, glowOpacity: 0.38 }}
+              snakeOptions={{ speed: 0.0042, tailLength: 0.18, lineWidth: 3, glowOpacity: 0.95, pad: 4 }}
               onMouseEnter={() => setBtn1Hovered(true)}
               onMouseLeave={() => setBtn1Hovered(false)}
               style={{
@@ -283,7 +283,7 @@ export default function Hero({ lang }) {
         #hero .hero-cta {
           border-radius: 14px !important;
           letter-spacing: 0 !important;
-          overflow: hidden !important;
+          overflow: visible !important;
           box-shadow: var(--btn-cta-shadow) !important;
           backdrop-filter: none !important;
           -webkit-backdrop-filter: none !important;
@@ -299,7 +299,7 @@ export default function Hero({ lang }) {
         }
         #hero .hero-cta-primary {
           background: var(--btn-gradient) !important;
-          border: var(--btn-border) !important;
+          border: 2px solid transparent !important;
           box-shadow: var(--btn-cta-shadow) !important;
         }
         #hero .hero-cta-secondary {

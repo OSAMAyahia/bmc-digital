@@ -20,8 +20,8 @@ export default function SnakeButton({
     if (!ctx) return undefined;
 
     const speed = snakeOptions.speed || 0.004;
-    const tailLength = snakeOptions.tailLength || 0.22;
-    const lineWidth = snakeOptions.lineWidth || 2;
+    const tailLength = snakeOptions.tailLength || 0.18;
+    const lineWidth = snakeOptions.lineWidth || 2.4;
     const glowOpacity = snakeOptions.glowOpacity ?? 1;
     const pad = snakeOptions.pad ?? 2;
     const startAt = snakeOptions.startAt || 'right';
@@ -92,34 +92,33 @@ export default function SnakeButton({
 
     function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const steps = 80;
+      const steps = 96;
       const step = tailLength / steps;
 
       for (let i = 0; i <= steps; i += 1) {
         const pt = getPoint(progress - i * step);
         const ratio = 1 - i / steps;
         const alpha = ratio * ratio * glowOpacity;
-        // Neon gradient: purple → cyan
-        const rr = Math.round(108 + (0   - 108) * ratio);
-        const gg = Math.round(99  + (194 - 99 ) * ratio);
-        const bb = Math.round(255 + (255 - 255) * ratio);
+        const rr = Math.round(30 + (185 - 30) * ratio);
+        const gg = Math.round(150 + (244 - 150) * ratio);
+        const bb = 255;
         ctx.beginPath();
-        ctx.arc(pt.x, pt.y, (lineWidth + ratio) / 2, 0, Math.PI * 2);
+        ctx.arc(pt.x, pt.y, (lineWidth + ratio * 1.4) / 2, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${rr},${gg},${bb},${alpha})`;
         ctx.fill();
       }
 
       const head = getPoint(progress);
       ctx.beginPath();
-      ctx.arc(head.x, head.y, lineWidth / 2 + 0.5, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(180,240,255,${glowOpacity})`;
+      ctx.arc(head.x, head.y, lineWidth / 2 + 1.1, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(220,250,255,${glowOpacity})`;
       ctx.fill();
 
-      const grd = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, 6);
-      grd.addColorStop(0, `rgba(0,194,255,${0.5 * glowOpacity})`);
-      grd.addColorStop(1, 'rgba(108,99,255,0)');
+      const grd = ctx.createRadialGradient(head.x, head.y, 0, head.x, head.y, 9);
+      grd.addColorStop(0, `rgba(0,213,255,${0.72 * glowOpacity})`);
+      grd.addColorStop(1, 'rgba(0,148,255,0)');
       ctx.beginPath();
-      ctx.arc(head.x, head.y, 6, 0, Math.PI * 2);
+      ctx.arc(head.x, head.y, 9, 0, Math.PI * 2);
       ctx.fillStyle = grd;
       ctx.fill();
 
@@ -144,15 +143,15 @@ export default function SnakeButton({
   }, [snakeOptions]);
 
   return (
-    <div style={{ position: 'relative', display: 'inline-block', ...wrapperStyle }}>
+    <div style={{ position: 'relative', display: 'inline-block', overflow: 'visible', ...wrapperStyle }}>
       <canvas
         ref={canvasRef}
         style={{
           position: 'absolute',
-          top: -2,
-          left: -2,
+          top: -(snakeOptions.pad ?? 2),
+          left: -(snakeOptions.pad ?? 2),
           pointerEvents: 'none',
-          zIndex: 0,
+          zIndex: 3,
         }}
       />
       <Component

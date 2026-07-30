@@ -119,6 +119,8 @@ export default function Navbar({ lang, setLang }) {
         '--btn-gradient-hover': 'linear-gradient(135deg, rgba(3, 17, 38, 0.96) 0%, rgba(0, 103, 151, 0.82) 52%, rgba(5, 12, 31, 0.96) 100%) padding-box, linear-gradient(135deg, rgba(245, 240, 232, 0.82) 0%, rgba(0, 194, 255, 0.88) 42%, rgba(184, 164, 114, 0.82) 100%) border-box',
         '--btn-glow-hover': '0 16px 36px rgba(0, 194, 255, 0.18), 0 4px 18px rgba(184, 164, 114, 0.08)',
         '--btn-inner-glow': 'inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(0,194,255,0.18)',
+        '--btn-edge-glow': 'none',
+        '--btn-cta-shadow': 'none',
       }}
     >
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
