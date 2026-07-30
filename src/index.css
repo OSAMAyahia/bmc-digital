@@ -25,13 +25,16 @@
   --bmc-white: #F5F0E8;
 
   /* ── Button — Glassmorphism Neon Blue Pill ── */
-  --btn-gradient:       linear-gradient(135deg, #3098d7 0%, #2487c5 100%) padding-box,
-                        linear-gradient(135deg, rgba(255,255,255,0.34), rgba(48,152,215,0.48), rgba(255,255,255,0.08)) border-box;
-  --btn-gradient-hover: linear-gradient(135deg, #3aa5e6 0%, #247fbb 100%) padding-box,
-                        linear-gradient(135deg, rgba(255,255,255,0.46), rgba(48,152,215,0.66), rgba(255,255,255,0.12)) border-box;
+  --btn-gradient:       linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 42%) padding-box,
+                        linear-gradient(135deg, #58baf2 0%, #3098d7 44%, #166aa7 100%) padding-box,
+                        linear-gradient(135deg, rgba(255,255,255,0.78), rgba(48,152,215,0.8), rgba(6,14,28,0.2)) border-box;
+  --btn-gradient-hover: linear-gradient(180deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0) 45%) padding-box,
+                        linear-gradient(135deg, #72c9ff 0%, #34a5eb 42%, #1f78b9 100%) padding-box,
+                        linear-gradient(135deg, rgba(255,255,255,0.9), rgba(48,152,215,0.95), rgba(255,255,255,0.2)) border-box;
   --btn-glow:           none;
-  --btn-glow-hover:     0 16px 36px rgba(48, 152, 215, 0.24), 0 4px 18px rgba(48, 152, 215, 0.12);
-  --btn-inner-glow:     inset 0 1px 0 rgba(255,255,255,0.22), inset 0 -1px 0 rgba(48,152,215,0.22);
+  --btn-glow-hover:     0 18px 42px rgba(48, 152, 215, 0.42), 0 8px 22px rgba(7, 28, 55, 0.38);
+  --btn-inner-glow:     inset 0 1px 0 rgba(255,255,255,0.34), inset 0 -12px 24px rgba(7, 57, 105, 0.2);
+  --btn-cta-shadow:     0 14px 34px rgba(48, 152, 215, 0.32), 0 5px 14px rgba(2, 12, 28, 0.32), var(--btn-inner-glow);
   --btn-radius:         14px;
   --btn-border:         1px solid transparent;
 
@@ -139,7 +142,7 @@ a.btn-primary {
   color:         #fff !important;
   border:        var(--btn-border) !important;
   border-radius: var(--btn-radius) !important;
-  box-shadow:    var(--btn-inner-glow) !important;
+  box-shadow:    var(--btn-cta-shadow) !important;
   backdrop-filter: blur(8px) !important;
   -webkit-backdrop-filter: blur(8px) !important;
   font-weight:   800 !important;
@@ -149,7 +152,7 @@ a.btn-primary {
                  filter 0.35s ease !important;
   position:      relative !important;
   overflow:      hidden !important;
-  letter-spacing: 0.5px !important;
+  letter-spacing: 0 !important;
   transform: translateY(0);
   isolation: isolate;
 }
@@ -161,7 +164,7 @@ a.btn-primary::before {
   position: absolute;
   inset: -2px;
   z-index: 0;
-  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.1) 38%, rgba(255,255,255,0.26) 50%, rgba(0,194,255,0.12) 62%, transparent 100%);
+  background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.08) 36%, rgba(255,255,255,0.46) 50%, rgba(255,255,255,0.12) 64%, transparent 100%);
   transform: translateX(-130%) skewX(-18deg);
   transition: transform 0.7s ease;
   pointer-events: none;
@@ -267,11 +270,11 @@ a.snake-edge::before, button.snake-edge::before {
 .snake-light { display: none; }
 .snake-btn {
   border-radius: var(--btn-radius) !important;
-  box-shadow: none !important;
+  box-shadow: var(--btn-cta-shadow) !important;
 }
 .snake-btn:hover {
   background: var(--btn-gradient-hover) !important;
-  box-shadow: none !important;
+  box-shadow: var(--btn-glow-hover), var(--btn-inner-glow) !important;
   transform: translateY(-3px) !important;
 }
 
@@ -378,7 +381,7 @@ html body .lang-btn,
 html body button:not(.icon-btn):not(.burger-btn):not(.whatsapp-float):not(.faq-toggle):not(.toggle-btn):not([class*="snav"]) {
   background: var(--btn-gradient) !important;
   border: var(--btn-border) !important;
-  box-shadow: var(--btn-inner-glow) !important;
+  box-shadow: var(--btn-cta-shadow) !important;
   color: #fff !important;
 }
 

@@ -280,7 +280,7 @@ export default function Hero({ lang }) {
           border-radius: 14px !important;
           letter-spacing: 0 !important;
           overflow: hidden !important;
-          box-shadow: none !important;
+          box-shadow: var(--btn-cta-shadow) !important;
           backdrop-filter: none !important;
           -webkit-backdrop-filter: none !important;
           display: inline-flex !important;
@@ -295,6 +295,8 @@ export default function Hero({ lang }) {
         }
         #hero .hero-cta-primary {
           background: var(--btn-gradient) !important;
+          border: var(--btn-border) !important;
+          box-shadow: var(--btn-cta-shadow) !important;
         }
         #hero .hero-cta-secondary {
           background: rgba(4,8,25,0.64) !important;
@@ -304,7 +306,10 @@ export default function Hero({ lang }) {
           background: rgba(4,8,25,0.76) !important;
         }
         #hero .hero-cta:hover {
-          box-shadow: none !important;
+          box-shadow: var(--btn-glow-hover), var(--btn-inner-glow) !important;
+        }
+        #hero .hero-cta-primary:hover {
+          background: var(--btn-gradient-hover) !important;
         }
         #hero .hero-cta svg {
           flex: 0 0 auto;

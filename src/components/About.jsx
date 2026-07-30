@@ -135,22 +135,22 @@ export default function About({ lang }) {
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 marginTop: 40, padding: '12px 28px',
-                background: 'linear-gradient(135deg, #3098d7 0%, #2487c5 100%)',
-                border: 'none',
+                background: 'var(--btn-gradient)',
+                border: 'var(--btn-border)',
                 color: '#fff', fontSize: 13, fontWeight: 700,
                 textDecoration: 'none', letterSpacing: 0.5, borderRadius: 0,
                 transition: 'all 0.3s', overflow: 'hidden',
-                boxShadow: 'none',
+                boxShadow: 'var(--btn-cta-shadow)',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #3aa5e6 0%, #247fbb 100%)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 0 24px rgba(48,152,215,0.55), 0 0 50px rgba(48,152,215,0.3)';
+                e.currentTarget.style.background = 'var(--btn-gradient-hover)';
+                e.currentTarget.style.transform = 'translateY(-3px)';
+                e.currentTarget.style.boxShadow = 'var(--btn-glow-hover), var(--btn-inner-glow)';
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.background = 'linear-gradient(135deg, #3098d7 0%, #2487c5 100%)';
+                e.currentTarget.style.background = 'var(--btn-gradient)';
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
+                e.currentTarget.style.boxShadow = 'var(--btn-cta-shadow)';
               }}
             >
               <span className="snake-light" />

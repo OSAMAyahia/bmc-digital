@@ -181,10 +181,10 @@ export default function Contact({ lang }) {
                     letterSpacing: 0.5, borderRadius: 50, transition: 'all 0.3s',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     gap: 8, opacity: sending ? 0.7 : 1,
-                    boxShadow: '0 6px 20px rgba(0,194,255,0.3)',
+                    boxShadow: 'var(--btn-cta-shadow)',
                   }}
-                  onMouseEnter={(e) => { if (!sending) { e.currentTarget.style.background = 'var(--btn-gradient-hover)'; e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 10px 28px rgba(0,194,255,0.45)'; } }}
-                  onMouseLeave={(e) => { if (!sending) { e.currentTarget.style.background = 'var(--btn-gradient)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,194,255,0.3)'; } }}
+                  onMouseEnter={(e) => { if (!sending) { e.currentTarget.style.background = 'var(--btn-gradient-hover)'; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = 'var(--btn-glow-hover), var(--btn-inner-glow)'; } }}
+                  onMouseLeave={(e) => { if (!sending) { e.currentTarget.style.background = 'var(--btn-gradient)'; e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = 'var(--btn-cta-shadow)'; } }}
                 >
                   {sending ? (lang === 'ar' ? 'جاري الإرسال...' : 'Sending...') : tx.btn}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

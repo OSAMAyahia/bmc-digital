@@ -544,20 +544,20 @@ export default function ServiceRequestForm({ lang, preselectedService }) {
           justifyContent: 'center',
           gap: 10,
           opacity: sending ? 0.7 : 1,
-          boxShadow: '0 6px 20px rgba(0,194,255,0.3)',
+          boxShadow: 'var(--btn-cta-shadow)',
         }}
         onMouseEnter={(e) => {
           if (!sending) {
-            e.currentTarget.style.background = 'linear-gradient(135deg, #2A2A6E 0%, #1A4090 100%)';
-            e.currentTarget.style.transform = 'translateY(-2px)';
-            e.currentTarget.style.boxShadow = '0 0 28px rgba(0,194,255,0.6), 0 0 60px rgba(108,99,255,0.35), inset 0 1px 0 rgba(0,194,255,0.25)';
+            e.currentTarget.style.background = 'var(--btn-gradient-hover)';
+            e.currentTarget.style.transform = 'translateY(-3px)';
+            e.currentTarget.style.boxShadow = 'var(--btn-glow-hover), var(--btn-inner-glow)';
           }
         }}
         onMouseLeave={(e) => {
           if (!sending) {
             e.currentTarget.style.background = 'var(--btn-gradient)';
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,194,255,0.3)';
+            e.currentTarget.style.boxShadow = 'var(--btn-cta-shadow)';
           }
         }}
       >
