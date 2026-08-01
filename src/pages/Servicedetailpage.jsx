@@ -1525,7 +1525,7 @@ export default function ServiceDetailPage({ lang, setLang }) {
 
               <Link
                 to="/services"
-                className="service-detail-btn"
+                className="service-detail-btn service-detail-btn-secondary"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -1654,6 +1654,24 @@ export default function ServiceDetailPage({ lang, setLang }) {
         .service-detail-btn:active {
           transform: translateY(-1px) scale(0.97) !important;
           transition-duration: 0.12s !important;
+        }
+
+        .service-detail-btn-secondary,
+        .service-detail-btn-secondary:hover {
+          background: rgba(255,255,255,0.025) !important;
+          border-color: rgba(255,255,255,0.16) !important;
+          box-shadow: none !important;
+          filter: none !important;
+        }
+        .service-detail-btn-secondary::before,
+        .service-detail-btn-secondary:hover::before {
+          content: none !important;
+          display: none !important;
+          transform: none !important;
+        }
+        .service-detail-btn-secondary:hover {
+          transform: translateY(-2px) !important;
+          color: #fff !important;
         }
 
         .hero-breadcrumb { animation: cardEntry 0.7s cubic-bezier(0.23,1,0.32,1) both; }

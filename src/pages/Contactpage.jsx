@@ -15,7 +15,7 @@ const contactData = {
     formSubtitle: 'املأ النموذج وسنتواصل معك في أقرب وقت ممكن.',
     directContact: 'تواصل مباشر',
     phone: '+966 53 516 6370',
-    email: 'info@bmd-digital.com',
+    email: 'info@binyah-masiyah-digital.sa',
     phoneLbl: 'الهاتف',
     emailLbl: 'البريد الإلكتروني',
     whatsappLbl: 'واتساب',
@@ -30,7 +30,7 @@ const contactData = {
     formSubtitle: 'Fill out the form and we will get back to you as soon as possible.',
     directContact: 'Direct Contact',
     phone: '+966 53 516 6370',
-    email: 'info@bmd-digital.com',
+    email: 'info@binyah-masiyah-digital.sa',
     phoneLbl: 'Phone',
     emailLbl: 'Email',
     whatsappLbl: 'WhatsApp',
@@ -50,20 +50,33 @@ const contactIcons = {
       <polyline points="22,6 12,13 2,6" />
     </svg>
   ),
-  whatsapp: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12 0C5.373 0 0 5.373 0 12c0 2.125.557 4.126 1.526 5.855L0 24l6.335-1.502A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0" />
-    </svg>
-  ),
 };
+
+function WhatsAppLogo({ size = 20 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="15" fill="#25D366" />
+      <path
+        fill="#fff"
+        d="M23.1 18.9c-.4-.2-2.2-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.5-.6-2.9-1.8-1.1-1-1.8-2.1-2-2.5-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.2-.4.4-.7.1-.2.1-.5 0-.7-.1-.2-.8-1.9-1.1-2.6-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.7.1-1 .5-.3.4-1.3 1.3-1.3 3.1 0 1.8 1.4 3.6 1.5 3.9.2.2 2.7 4.1 6.5 5.7.9.4 1.6.6 2.2.8.9.3 1.7.2 2.4.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.2-.3-.5-.4-.9-.6Z"
+      />
+      <path
+        fill="#fff"
+        fillRule="evenodd"
+        d="M16 5.4c-5.8 0-10.5 4.7-10.5 10.4 0 1.9.5 3.7 1.5 5.3l-1.6 5.5 5.7-1.5c1.5.8 3.2 1.2 5 1.2 5.8 0 10.5-4.7 10.5-10.5S21.8 5.4 16 5.4Zm0 18.9c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.3.9.9-3.2-.2-.3c-.9-1.4-1.3-2.9-1.3-4.5 0-4.7 3.9-8.5 8.6-8.5s8.6 3.8 8.6 8.5-3.9 8.5-8.6 8.5Z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
 
 export default function ContactPage({ lang, setLang }) {
   useReveal();
   const tx = contactData[lang] || contactData.ar;
   const contactItems = [
-    { icon: contactIcons.phone, label: tx.phoneLbl, value: tx.phone, href: `tel:${tx.phone.replace(/\s/g, '')}`, color: '#00C2FF' },
+    { icon: contactIcons.phone, label: tx.phoneLbl, value: tx.phone, href: `tel:${tx.phone.replace(/\s/g, '')}`, color: '#00C2FF', showWhatsAppLogoByNumber: true },
     { icon: contactIcons.email, label: tx.emailLbl, value: tx.email, href: `mailto:${tx.email}`, color: '#00C2FF' },
-    { icon: contactIcons.whatsapp, label: tx.whatsappLbl, value: tx.whatsapp, href: `https://wa.me/${tx.whatsapp.replace(/\D/g, '')}`, color: '#25d366' },
+    { icon: <WhatsAppLogo />, label: tx.whatsappLbl, value: tx.whatsapp, href: `https://wa.me/${tx.whatsapp.replace(/\D/g, '')}`, color: '#25d366', showWhatsAppLogoByNumber: true },
   ];
   const tickerContent = Array.from({ length: 8 }, () => contactItems).flat();
 
@@ -117,6 +130,7 @@ export default function ContactPage({ lang, setLang }) {
               }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 18, height: 18, color: c.color }}>{c.icon}</span>
                 <span>{c.label}: </span>{' '}
+                {c.showWhatsAppLogoByNumber && <WhatsAppLogo size={18} />}
                 <span dir="ltr">{c.value}</span>
               </div>
             ))}
@@ -130,6 +144,7 @@ export default function ContactPage({ lang, setLang }) {
               }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: 18, height: 18, color: c.color }}>{c.icon}</span>
                 <span>{c.label}: </span>{' '}
+                {c.showWhatsAppLogoByNumber && <WhatsAppLogo size={18} />}
                 <span dir="ltr">{c.value}</span>
               </div>
             ))}
@@ -173,7 +188,8 @@ export default function ContactPage({ lang, setLang }) {
                       <div style={{ fontSize: 11, color: 'rgba(245,240,232,0.4)', fontWeight: 600, letterSpacing: 1, textTransform: 'uppercase', marginBottom: 2 }}>
                         {c.label}
                       </div>
-                      <div style={{ fontSize: 15, color: 'rgba(245,240,232,0.8)', fontWeight: 600 }} dir="ltr">
+                      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 15, color: 'rgba(245,240,232,0.8)', fontWeight: 600 }} dir="ltr">
+                        {c.showWhatsAppLogoByNumber && <WhatsAppLogo size={18} />}
                         {c.value}
                       </div>
                     </div>

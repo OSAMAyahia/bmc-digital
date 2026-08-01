@@ -12,13 +12,13 @@
 
 /* RTL → right side */
 .section-nav.snav-rtl {
-  right: 22px;
+  right: 26px;
   left: auto;
 }
 
 /* LTR → left side */
 .section-nav.snav-ltr {
-  left: 22px;
+  left: 26px;
   right: auto;
 }
 
@@ -33,17 +33,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 8px 0;
+  gap: 10px;
+  padding: 10px 0;
 }
 
 /* Vertical line running through all dots */
 .snav-line {
   position: absolute;
-  top: 18px;
-  bottom: 18px;
+  top: 20px;
+  bottom: 20px;
   width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(48,152,215,0.34) 18%, rgba(48,152,215,0.34) 82%, transparent);
+  background: linear-gradient(180deg, transparent, rgba(245,240,232,0.28) 18%, rgba(245,240,232,0.28) 82%, transparent);
   left: 50%;
   transform: translateX(-50%);
   z-index: 0;
@@ -56,27 +56,27 @@
   align-items: center;
   justify-content: center;
   gap: 0;
-  width: 26px;
-  height: 26px;
-  background: rgba(6,12,25,0.5);
-  border: 1px solid rgba(48,152,215,0.34);
-  border-radius: 999px !important;
+  width: 22px;
+  height: 30px;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
   cursor: pointer;
   padding: 0;
   z-index: 1;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03), 0 0 10px rgba(48,152,215,0.08);
-  transition: width 0.28s ease, background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  box-shadow: none !important;
+  transition: transform 0.24s ease;
 }
 
 /* Dot */
 .snav-dot {
   flex-shrink: 0;
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background: rgba(108,99,255,0.58);
-  border: 1px solid rgba(108,99,255,0.78);
-  transition: all 0.3s ease;
+  background: rgba(210,235,255,0.56);
+  border: 1px solid rgba(210,235,255,0.28);
+  transition: background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, transform 0.28s ease;
   position: relative;
   z-index: 1;
 }
@@ -85,31 +85,33 @@
 .snav-item.snav-active .snav-dot {
   background: #00C2FF;
   border-color: #00C2FF;
-  box-shadow: 0 0 10px rgba(0,194,255,0.85), 0 0 20px rgba(48,152,215,0.5);
-  transform: none;
+  box-shadow: 0 0 10px rgba(0,194,255,0.92), 0 0 24px rgba(0,194,255,0.72);
+  transform: scale(1.28);
 }
 
 /* Label — tiny and subtle, fades in on hover/active */
 .snav-label {
   font-family: 'Cairo', sans-serif;
-  font-size: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  font-size: 12px;
   font-weight: 800;
   color: transparent;
   white-space: nowrap;
   letter-spacing: 0;
-  transition: color 0.25s ease, max-width 0.28s ease, opacity 0.25s ease;
+  transition: color 0.22s ease, opacity 0.22s ease, transform 0.22s ease;
   pointer-events: none;
-  max-width: 0;
   opacity: 0;
-  overflow: hidden;
   line-height: 1;
+  text-shadow: 0 0 8px rgba(0,194,255,0.62);
 }
 
 .snav-item:hover .snav-label,
 .snav-item.snav-active .snav-label {
-  color: rgba(245,240,232,0.9);
-  max-width: 120px;
+  color: #6feaff;
   opacity: 1;
+  transform: translateY(-50%) translateX(0);
 }
 
 /* ── LTR: dot first (left), then label to the right ── */
@@ -119,6 +121,7 @@
 
 .snav-ltr .snav-label {
   text-align: left;
+  left: 24px;
 }
 
 /* ── RTL: dot first in visual order (right side), label expands to the left ── */
@@ -128,32 +131,28 @@
 
 .snav-rtl .snav-label {
   text-align: right;
+  right: 24px;
 }
 
 /* Active item label always visible */
 .snav-item.snav-active .snav-label {
-  color: rgba(245,240,232,0.9);
-  max-width: 120px;
+  color: #6feaff;
 }
 
 .snav-item:hover,
 .snav-item.snav-active {
-  width: 82px;
-  gap: 7px;
-  border-color: rgba(0,194,255,0.82);
-  background: linear-gradient(135deg, rgba(48,152,215,0.28), rgba(7,18,34,0.72));
-  box-shadow: 0 0 16px rgba(48,152,215,0.28), inset 0 1px 0 rgba(255,255,255,0.12);
+  transform: none;
 }
 
 /* Fix the vertical line centering to always align with the dots */
 .snav-rtl .snav-line {
   left: auto;
-  right: 13px;
+  right: 10.5px;
   transform: none;
 }
 
 .snav-ltr .snav-line {
-  left: 13px;
+  left: 10.5px;
   right: auto;
   transform: none;
 }

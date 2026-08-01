@@ -208,7 +208,7 @@ export default function Footer({ lang }) {
                 </li>
                 <li>
                   <span className="fc-icon"><MailIcon /></span>
-                  <a className="footer-contact-link" href="mailto:info@bmd-digital.com">info@bmd-digital.com</a>
+                  <a className="footer-contact-link" href="mailto:info@binyah-masiyah-digital.sa">info@binyah-masiyah-digital.sa</a>
                 </li>
                 <li>
                   <span className="fc-icon"><PinIcon /></span>

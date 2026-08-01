@@ -376,7 +376,7 @@ function LoginPage({ onLogin }) {
         </div>
         <form onSubmit={handleSubmit}>
           <label style={styles.label}>Email</label>
-          <input style={styles.input} type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="admin@bmc-digital.sa" required />
+          <input style={styles.input} type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="admin@binyah-masiyah-digital.sa" required />
           <label style={styles.label}>Password</label>
           <input style={styles.input} type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" required />
           {error && <p style={{ color: '#e74c3c', fontSize: 13, marginBottom: 16 }}>{error}</p>}
