@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import ServiceRequestPopup from '../components/ServiceRequestPopup';
 import { useReveal } from '../hooks/useReveal';
 import worksHeroImg from '../assets/heroimagedesktop.png';
@@ -62,8 +63,16 @@ export default function WorksPage({ lang, setLang }) {
 
   return (
     <>
+      <SEO
+        lang={lang}
+        path="/works"
+        title={lang === 'ar' ? 'أعمالنا | مشاريع نفخر بها - BMD' : 'Our Work | Projects We Are Proud Of - BMD'}
+        description={lang === 'ar'
+          ? 'تعرف على نماذج من مشاريع البنية الماسية الرقمية التي نفذناها لعملائنا: متاجر إلكترونية، تطبيقات جوال، أنظمة ERP، وداشبوردات تحليلية.'
+          : "Browse BMD's portfolio of delivered projects: e-commerce platforms, mobile apps, ERP systems, and analytics dashboards."}
+      />
       <Navbar lang={lang} setLang={setLang} />
-      
+
       {/* Hero Section - Professional 3D Animated Background */}
       <section className="page-hero page-hero-works" style={{
         minHeight: '55vh',

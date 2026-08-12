@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import SnakeButton from '../components/SnakeButton';
 import { useReveal } from '../hooks/useReveal';
 import { useData } from '../DataContext';
@@ -1106,6 +1107,12 @@ export default function ServiceDetailPage({ lang, setLang }) {
 
   return (
     <>
+      <SEO
+        lang={lang}
+        path={`/service/${service.slug}`}
+        title={`${title} | BMD`}
+        description={detailDesc?.slice(0, 160) || title}
+      />
       <Navbar lang={lang} setLang={setLang} />
       {/* ── Hero ── */}
       <section style={{

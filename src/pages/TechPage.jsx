@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import ServiceRequestPopup from '../components/ServiceRequestPopup';
 import { useReveal } from '../hooks/useReveal';
 
@@ -46,6 +47,14 @@ export default function TechPage({ lang, setLang }) {
 
   return (
     <>
+      <SEO
+        lang={lang}
+        path="/tech"
+        title={lang === 'ar' ? 'تقنياتنا | أفضل الأدوات والتقنيات - BMD' : 'Our Tech Stack | The Best Tools - BMD'}
+        description={lang === 'ar'
+          ? 'تعرف على التقنيات التي تعتمدها البنية الماسية الرقمية: React، Next.js، Node.js، MongoDB، Docker، AWS وأكثر.'
+          : 'Discover the technologies BMD uses: React, Next.js, Node.js, MongoDB, Docker, AWS and more.'}
+      />
       <Navbar lang={lang} setLang={setLang} />
 
       {/* Hero */}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import ServiceRequestPopup from '../components/ServiceRequestPopup';
 import { useReveal } from '../hooks/useReveal';
 
@@ -49,6 +50,14 @@ export default function ProcessPage({ lang, setLang }) {
 
   return (
     <>
+      <SEO
+        lang={lang}
+        path="/process"
+        title={lang === 'ar' ? 'منهجيتنا | كيف نعمل معك - BMD' : 'Our Process | How We Work With You - BMD'}
+        description={lang === 'ar'
+          ? 'منهجية عمل واضحة ومنظمة في البنية الماسية الرقمية لضمان تسليم مشروعك بأعلى جودة وفي الوقت المحدد.'
+          : "BMD's clear, organized methodology to ensure your project is delivered with the highest quality and on time."}
+      />
       <Navbar lang={lang} setLang={setLang} />
 
       {/* Hero */}

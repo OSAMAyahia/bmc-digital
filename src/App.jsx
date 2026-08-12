@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { DataProvider, useData } from './DataContext';
+import SEO from './components/SEO';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -80,6 +82,14 @@ function HomePage({ lang, setLang }) {
 
   return (
     <>
+      <SEO
+        lang={lang}
+        path="/"
+        title={lang === 'ar' ? 'BMD | البنية الماسية الرقمية - حلول تقنية ورقمية متكاملة' : 'BMD | Diamond Digital Structure - Full Digital & Tech Solutions'}
+        description={lang === 'ar'
+          ? 'البنية الماسية الرقمية BMD تقدم خدمات تطوير المواقع، المتاجر الإلكترونية، تطبيقات الجوال، أنظمة ERP، تصميم UI/UX، والتسويق الرقمي لتنمية أعمالك.'
+          : 'BMD provides web development, e-commerce, mobile apps, ERP systems, UI/UX design, and digital marketing services to grow your business.'}
+      />
       <Navbar lang={lang} setLang={setLang} />
       <main>
         {sectionMap.hero !== false && <Hero lang={lang} />}
@@ -132,10 +142,12 @@ function AppContent() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <DataProvider>
-        <AppContent />
-      </DataProvider>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <DataProvider>
+          <AppContent />
+        </DataProvider>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }

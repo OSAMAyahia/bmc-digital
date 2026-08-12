@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import ServiceRequestPopup from '../components/ServiceRequestPopup';
 import { useReveal } from '../hooks/useReveal';
 
@@ -82,8 +83,16 @@ export default function ContactPage({ lang, setLang }) {
 
   return (
     <>
+      <SEO
+        lang={lang}
+        path="/contact"
+        title={lang === 'ar' ? 'تواصل معنا | البنية الماسية الرقمية BMD' : 'Contact Us | BMD Digital'}
+        description={lang === 'ar'
+          ? 'تواصل مع فريق البنية الماسية الرقمية عبر الهاتف أو البريد الإلكتروني أو واتساب لبدء مشروعك الرقمي اليوم.'
+          : "Get in touch with BMD's team by phone, email, or WhatsApp to start your digital project today."}
+      />
       <Navbar lang={lang} setLang={setLang} />
-      
+
       {/* Hero Section - Professional 3D Animated Background */}
       <section className="page-hero page-hero-contact" style={{
         minHeight: '55vh',

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import ServiceRequestPopup from '../components/ServiceRequestPopup';
 import SnakeButton from '../components/SnakeButton';
 import { useReveal } from '../hooks/useReveal';
@@ -159,8 +160,16 @@ export default function ServicesPage({ lang, setLang }) {
 
   return (
     <>
+      <SEO
+        lang={lang}
+        path="/services"
+        title={lang === 'ar' ? 'خدماتنا | تطوير مواقع، متاجر، تطبيقات، ERP - BMD' : 'Our Services | Web, E-commerce, Apps, ERP - BMD'}
+        description={lang === 'ar'
+          ? 'استكشف خدمات البنية الماسية الرقمية: تطوير المواقع، المتاجر الإلكترونية، تطبيقات الجوال، أنظمة ERP، تصميم UI/UX، والتسويق الرقمي.'
+          : 'Explore BMD services: web development, e-commerce, mobile apps, ERP systems, UI/UX design, and digital marketing.'}
+      />
       <Navbar lang={lang} setLang={setLang} />
-      
+
       {/* Hero Section - Professional 3D Animated Background */}
       <section className="page-hero page-hero-services" style={{
         minHeight: '60vh',
