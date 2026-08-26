@@ -275,7 +275,7 @@ export default function Footer({ lang }) {
                   <span className="footer-reg-label">
                     {lang === 'ar' ? 'السجل التجاري' : 'CR No.'}
                   </span>
-                  <span className="footer-reg-value" dir="ltr">1010234567</span>
+                  <span className="footer-reg-value" dir="ltr">1010837785</span>
                 </div>
               </div>
             </div>
